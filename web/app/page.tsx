@@ -1,7 +1,9 @@
 import { SiteFooter } from "@/components/site-footer";
 import { Hero } from "@/components/sections/hero";
 import { Philosophy } from "@/components/sections/philosophy";
-import { Categories } from "@/components/sections/categories";
+import { CategoriesHoverPreview } from "@/components/sections/categories-hover-preview";
+import { CategoriesCursorFollow } from "@/components/sections/categories-cursor-follow";
+import { CategoriesScrollPin } from "@/components/sections/categories-scroll-pin";
 import { FeaturedProducts } from "@/components/sections/featured-products";
 import { Materials } from "@/components/sections/materials";
 import { WhyVi } from "@/components/sections/why-vi";
@@ -14,7 +16,12 @@ export default function HomePage() {
       <main className="relative">
         <Hero />
         <Philosophy />
-        <Categories />
+
+        {/* Three variants to choose between — pick one, delete the others */}
+        <CategoriesHoverPreview />
+        <CategoriesCursorFollow />
+        <CategoriesScrollPin />
+
         <FeaturedProducts />
         <Materials />
         <WhyVi />
