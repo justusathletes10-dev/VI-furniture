@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { ShaderBackground } from "@/components/ui/hero-shader";
 
 export function Hero() {
@@ -86,6 +87,50 @@ export function Hero() {
             </a>
           </div>
         </header>
+
+        {/* Furniture vignette — floats on the right, shader breathes around it */}
+        <div
+          aria-hidden="true"
+          className="hidden md:block absolute right-10 lg:right-16 top-1/2 -translate-y-1/2 z-10 w-[32vw] max-w-[460px] aspect-[3/4] overflow-hidden"
+          style={{
+            boxShadow: "0 40px 120px -30px rgba(0,0,0,0.55)",
+          }}
+        >
+          <Image
+            src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=1200&q=85&auto=format&fit=crop"
+            alt=""
+            fill
+            priority
+            sizes="(max-width: 768px) 100vw, 32vw"
+            className="object-cover"
+          />
+          {/* subtle tint to tie it into the hero */}
+          <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A]/25 via-transparent to-transparent pointer-events-none" />
+          <div className="absolute left-4 bottom-4 right-4 flex items-end justify-between text-white/90">
+            <div>
+              <p className="text-[9px] tracking-[0.22em] uppercase text-[#C9A48A]">
+                Atelier Edition
+              </p>
+              <p className="font-serif text-base mt-1">Canapé Beyrouth</p>
+            </div>
+            <p className="text-[11px] text-white/70">$1,200</p>
+          </div>
+        </div>
+
+        {/* Mobile: compact furniture chip below the text */}
+        <div
+          aria-hidden="true"
+          className="md:hidden absolute right-6 top-24 z-10 w-36 aspect-[3/4] overflow-hidden"
+          style={{ boxShadow: "0 20px 40px -12px rgba(0,0,0,0.55)" }}
+        >
+          <Image
+            src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&q=80&auto=format&fit=crop"
+            alt=""
+            fill
+            sizes="144px"
+            className="object-cover"
+          />
+        </div>
 
         <main className="absolute bottom-12 left-6 md:bottom-16 md:left-12 z-20 max-w-2xl pr-6">
           <h1 className="font-display text-5xl md:text-7xl leading-[1.05] tracking-tight text-white mb-6 font-medium">
