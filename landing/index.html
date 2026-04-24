@@ -1,892 +1,615 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
-<title>VI Furniture — Crafted for the Modern Vietnamese Home</title>
-<meta name="description" content="VI Furniture — luxury Vietnamese furniture, hand-crafted from sustainable hardwoods. Sofas, dining, bedroom, lighting and decor. Free white-glove delivery in Hanoi, HCMC and Da Nang." />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>VI — Furniture for Vietnamese homes</title>
+  <meta name="description" content="VI is a Bình Dương–made furniture studio. Slow objects in wood, brass, slumped glass and ceramic for the modern Vietnamese home." />
 
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Josefin+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-<script src="https://cdn.tailwindcss.com"></script>
-<script>
-  tailwind.config = {
-    theme: {
-      extend: {
-        fontFamily: {
-          display: ['Cinzel', 'serif'],
-          sans: ['Josefin Sans', 'ui-sans-serif', 'system-ui'],
-        },
-        colors: {
-          ink: '#1E293B',
-          paper: '#F8FAFC',
-          primary: '#2563EB',
-          secondary: '#3B82F6',
-          cta: '#F97316',
-          gold: '#C9A96E',
-          warm: '#8C7A5B',
-        },
-        boxShadow: {
-          glass: '0 10px 40px -12px rgba(30,41,59,0.18), inset 0 1px 0 rgba(255,255,255,0.6)',
-          float: '0 30px 80px -30px rgba(37,99,235,0.35)',
-        },
-        keyframes: {
-          floatY: { '0%,100%': { transform: 'translateY(0px)' }, '50%': { transform: 'translateY(-10px)' } },
-          shimmer: { '0%': { backgroundPosition: '-200% 0' }, '100%': { backgroundPosition: '200% 0' } },
-          blob: {
-            '0%,100%': { transform: 'translate(0,0) scale(1)' },
-            '33%': { transform: 'translate(30px,-20px) scale(1.08)' },
-            '66%': { transform: 'translate(-20px,20px) scale(0.94)' },
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Inter+Tight:wght@400;500&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            bg:     '#F5F2EC',
+            surface:'#FFFFFF',
+            ink:    '#1A1A1A',
+            muted:  '#6B6660',
+            rule:   '#E4DFD6',
+            clay:   '#7C4A2C',
           },
-        },
-        animation: {
-          floatY: 'floatY 6s ease-in-out infinite',
-          shimmer: 'shimmer 2.4s linear infinite',
-          'blob-slow': 'blob 18s ease-in-out infinite',
-          'blob-slower': 'blob 28s ease-in-out infinite',
-        },
-      },
-    },
-  };
-</script>
-<style>
-  html { scroll-behavior: smooth; }
-  body {
-    font-family: 'Josefin Sans', system-ui, sans-serif;
-    color: #1E293B;
-    background: #F8FAFC;
-    -webkit-font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
-  }
-  .font-display { font-family: 'Cinzel', serif; letter-spacing: 0.01em; }
+          fontFamily: {
+            sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+            display: ['"Inter Tight"', 'Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+          },
+          letterSpacing: { 'micro': '0.14em' },
+          maxWidth: { 'prose': '60ch' },
+        }
+      }
+    }
+  </script>
 
-  /* Subtle film grain overlay */
-  .grain::before{
-    content:""; position:absolute; inset:0; pointer-events:none; opacity:.18; mix-blend-mode:overlay;
-    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.6 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
-  }
-
-  /* Liquid glass surfaces */
-  .glass {
-    background: linear-gradient(135deg, rgba(255,255,255,0.72), rgba(255,255,255,0.5));
-    backdrop-filter: blur(22px) saturate(140%);
-    -webkit-backdrop-filter: blur(22px) saturate(140%);
-    border: 1px solid rgba(255,255,255,0.55);
-    box-shadow: 0 10px 40px -12px rgba(30,41,59,0.18), inset 0 1px 0 rgba(255,255,255,0.7);
-  }
-  .glass-dark {
-    background: linear-gradient(135deg, rgba(30,41,59,0.55), rgba(30,41,59,0.32));
-    backdrop-filter: blur(22px) saturate(140%);
-    -webkit-backdrop-filter: blur(22px) saturate(140%);
-    border: 1px solid rgba(255,255,255,0.18);
-  }
-  .glass-gold {
-    background: linear-gradient(135deg, rgba(201,169,110,0.22), rgba(255,255,255,0.55));
-    backdrop-filter: blur(20px) saturate(150%);
-    -webkit-backdrop-filter: blur(20px) saturate(150%);
-    border: 1px solid rgba(201,169,110,0.45);
-  }
-
-  .liquid-edge {
-    position: relative;
-  }
-  .liquid-edge::after{
-    content:""; position:absolute; inset:0; border-radius:inherit; pointer-events:none;
-    background: linear-gradient(135deg, rgba(255,255,255,0.7), transparent 35%, transparent 60%, rgba(201,169,110,0.35));
-    mix-blend-mode: overlay; opacity:.6;
-  }
-
-  .text-balance { text-wrap: balance; }
-  .text-pretty { text-wrap: pretty; }
-
-  /* Smooth, no-shift hover transitions */
-  .lift { transition: transform .5s cubic-bezier(.2,.8,.2,1), box-shadow .5s cubic-bezier(.2,.8,.2,1), border-color .5s; will-change: transform; }
-  .lift:hover { transform: translateY(-6px); box-shadow: 0 28px 60px -24px rgba(30,41,59,.28); }
-
-  .img-hover { transition: transform .8s cubic-bezier(.2,.8,.2,1), filter .6s; }
-  .group:hover .img-hover { transform: scale(1.06); filter: saturate(1.1); }
-
-  .btn { transition: transform .4s cubic-bezier(.2,.8,.2,1), background .4s, box-shadow .4s, color .4s; }
-  .btn:hover { transform: translateY(-2px); }
-
-  .underline-grow { position: relative; }
-  .underline-grow::after{
-    content:""; position:absolute; left:0; bottom:-4px; height:1px; width:0;
-    background: currentColor; transition: width .5s cubic-bezier(.2,.8,.2,1);
-  }
-  .underline-grow:hover::after{ width:100%; }
-
-  .price-strike { text-decoration: line-through; text-decoration-thickness: 1px; opacity:.5; }
-
-  /* Mesh background blobs */
-  .mesh {
-    position: absolute; inset: 0; overflow: hidden; pointer-events: none;
-  }
-  .blob {
-    position:absolute; border-radius:9999px; filter: blur(80px); opacity:.55;
-  }
-
-  /* Marquee for trust strip */
-  @keyframes marquee { from{transform:translateX(0)} to{transform:translateX(-50%)} }
-  .marquee-track { animation: marquee 40s linear infinite; }
-
-  @media (prefers-reduced-motion: reduce) {
-    *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
-    .lift:hover { transform: none; }
-    .group:hover .img-hover { transform: none; }
-  }
-</style>
+  <style>
+    html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+    body {
+      background: #F5F2EC;
+      color: #1A1A1A;
+      font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    .font-display { font-family: 'Inter Tight', 'Inter', ui-sans-serif, system-ui, sans-serif; letter-spacing: -0.01em; }
+    .eyebrow { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #6B6660; }
+    .hairline { border-color: #E4DFD6; }
+    .link-underline {
+      background-image: linear-gradient(currentColor, currentColor);
+      background-position: 0 100%;
+      background-repeat: no-repeat;
+      background-size: 0% 1px;
+      transition: background-size .35s ease, color .2s ease;
+      padding-bottom: 2px;
+    }
+    .link-underline:hover { background-size: 100% 1px; }
+    .always-underline { text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 1px; transition: color .2s ease; }
+    .always-underline:hover { color: #7C4A2C; }
+    input.line-input { background: transparent; border: 0; border-bottom: 1px solid #1A1A1A; border-radius: 0; outline: none; padding: .5rem 0; width: 100%; color: #1A1A1A; }
+    input.line-input:focus { border-color: #7C4A2C; }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { transition: none !important; animation: none !important; }
+      .link-underline { background-size: 0% 1px !important; }
+    }
+  </style>
 </head>
-<body class="bg-paper text-ink antialiased">
+<body class="bg-bg text-ink">
 
-<!-- ===================== NAVBAR ===================== -->
-<header class="fixed inset-x-0 top-4 z-50 px-4">
-  <nav class="mx-auto max-w-7xl glass liquid-edge rounded-2xl px-4 md:px-6 py-3 flex items-center gap-4">
-    <a href="#" class="flex items-center gap-2 cursor-pointer">
-      <span class="grid place-items-center w-10 h-10 rounded-xl bg-gradient-to-br from-ink to-primary text-white font-display text-lg shadow-glass">VI</span>
-      <span class="hidden sm:flex flex-col leading-tight">
-        <span class="font-display text-[15px] tracking-widest text-ink">VI FURNITURE</span>
-        <span class="text-[10px] uppercase tracking-[0.25em] text-warm">Nội Thất Cao Cấp</span>
-      </span>
-    </a>
+  <!-- ───────────────────────── TOP BAR ───────────────────────── -->
+  <header class="border-b hairline bg-bg">
+    <div class="mx-auto max-w-[1440px] px-6 md:px-10">
+      <div class="grid grid-cols-3 items-center h-14">
+        <a href="#" class="font-display text-[15px] tracking-micro uppercase font-medium cursor-pointer">VI</a>
 
-    <ul class="hidden lg:flex items-center gap-8 mx-auto text-sm font-medium text-ink/80">
-      <li><a href="#categories" class="underline-grow cursor-pointer hover:text-ink">Sofas</a></li>
-      <li><a href="#categories" class="underline-grow cursor-pointer hover:text-ink">Dining</a></li>
-      <li><a href="#categories" class="underline-grow cursor-pointer hover:text-ink">Bedroom</a></li>
-      <li><a href="#categories" class="underline-grow cursor-pointer hover:text-ink">Lighting</a></li>
-      <li><a href="#categories" class="underline-grow cursor-pointer hover:text-ink">Decor</a></li>
-      <li><a href="#why" class="underline-grow cursor-pointer hover:text-ink">Atelier</a></li>
-    </ul>
+        <nav class="hidden md:flex items-center justify-center gap-8 text-[11px] tracking-micro uppercase">
+          <a href="#collection" class="link-underline cursor-pointer">Collection</a>
+          <a href="#" class="link-underline cursor-pointer">Lighting</a>
+          <a href="#" class="link-underline cursor-pointer">Seating</a>
+          <a href="#" class="link-underline cursor-pointer">Tables</a>
+          <a href="#journal" class="link-underline cursor-pointer">Journal</a>
+        </nav>
 
-    <div class="ml-auto lg:ml-0 flex items-center gap-1.5">
-      <button aria-label="Search" class="btn cursor-pointer w-10 h-10 grid place-items-center rounded-xl hover:bg-white/60">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
-      </button>
-      <button aria-label="Account" class="btn cursor-pointer w-10 h-10 grid place-items-center rounded-xl hover:bg-white/60 hidden sm:grid">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-7 8-7s8 3 8 7"/></svg>
-      </button>
-      <button aria-label="Cart" class="btn cursor-pointer relative w-10 h-10 grid place-items-center rounded-xl hover:bg-white/60">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="M3 4h2l2.4 12.2a2 2 0 0 0 2 1.6h8.2a2 2 0 0 0 2-1.5L21 8H6"/><circle cx="9" cy="21" r="1.2"/><circle cx="18" cy="21" r="1.2"/></svg>
-        <span class="absolute -top-1 -right-1 text-[10px] font-semibold bg-cta text-white rounded-full w-5 h-5 grid place-items-center">3</span>
-      </button>
-      <a href="#newsletter" class="btn cursor-pointer hidden md:inline-flex items-center gap-2 ml-2 px-4 h-10 rounded-xl bg-ink text-white text-sm font-medium hover:bg-primary">
-        Book Consultation
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-      </a>
-    </div>
-  </nav>
-</header>
-
-<!-- ===================== HERO ===================== -->
-<section class="relative min-h-[100svh] pt-28 md:pt-32 pb-16 overflow-hidden grain">
-  <!-- background image -->
-  <div class="absolute inset-0 -z-10">
-    <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=2400&q=80"
-         alt="Luxury living room" class="w-full h-full object-cover" />
-    <div class="absolute inset-0 bg-gradient-to-br from-paper/85 via-paper/50 to-ink/30"></div>
-  </div>
-  <!-- mesh blobs -->
-  <div class="mesh">
-    <div class="blob w-[420px] h-[420px] bg-primary/30 -top-24 -left-20 animate-blob-slow"></div>
-    <div class="blob w-[520px] h-[520px] bg-gold/30 top-1/3 -right-32 animate-blob-slower"></div>
-    <div class="blob w-[360px] h-[360px] bg-secondary/25 bottom-0 left-1/3 animate-blob-slow"></div>
-  </div>
-
-  <div class="relative max-w-7xl mx-auto px-4 md:px-8 grid lg:grid-cols-12 gap-8 items-center min-h-[78svh]">
-    <!-- Glass overlay copy panel -->
-    <div class="lg:col-span-7 glass liquid-edge rounded-3xl p-6 md:p-10 lg:p-12 shadow-glass">
-      <div class="flex items-center gap-3 mb-6">
-        <span class="h-px w-8 bg-gold"></span>
-        <span class="text-[11px] tracking-[0.35em] uppercase text-warm font-semibold">Atelier Saigon · Est. 2014</span>
+        <div class="flex items-center justify-end gap-6 text-[11px] tracking-micro uppercase">
+          <button aria-label="Search" class="flex items-center gap-2 link-underline cursor-pointer">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+            <span class="hidden sm:inline">Search</span>
+          </button>
+          <a href="#" class="flex items-center gap-2 link-underline cursor-pointer">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 5-6 8-6s6.5 2 8 6"/></svg>
+            <span class="hidden sm:inline">Account</span>
+          </a>
+          <a href="#" class="flex items-center gap-2 link-underline cursor-pointer">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 7h14l-1.2 12.2a2 2 0 0 1-2 1.8H8.2a2 2 0 0 1-2-1.8L5 7Z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg>
+            <span>Cart (0)</span>
+          </a>
+        </div>
       </div>
-      <h1 class="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.05] text-ink text-balance">
-        Crafted for the
-        <span class="block">Modern</span>
-        <span class="relative inline-block">
-          <span class="bg-gradient-to-r from-primary via-secondary to-gold bg-clip-text text-transparent">Vietnamese</span>
-          <svg class="absolute -bottom-2 left-0 w-full" viewBox="0 0 200 8" fill="none"><path d="M2 5 Q 50 -2 100 4 T 198 3" stroke="#C9A96E" stroke-width="1.5" stroke-linecap="round"/></svg>
-        </span>
-        Home.
-      </h1>
-      <p class="mt-6 max-w-xl text-base md:text-lg text-ink/75 text-pretty">
-        Hand-finished hardwood, slow-spun rattan, and bespoke upholstery — built in our Bình Dương atelier
-        for homes from <em class="not-italic text-ink/90">Hà Nội</em> to <em class="not-italic text-ink/90">Sài Gòn</em>.
-        White-glove delivery, ten-year warranty, lifetime craftsmanship.
+    </div>
+  </header>
+
+  <!-- ───────────────────────── HERO (interactive parallax VI) ───────────────────────── -->
+  <section class="relative overflow-hidden" id="hero">
+    <div
+      class="relative w-full"
+      style="aspect-ratio: 16/9; min-height: 560px; max-height: 90vh; perspective: 1400px; perspective-origin: 50% 50%;"
+      id="hero-stage"
+    >
+      <!-- Background photograph (deepest layer) -->
+      <div class="absolute inset-0 parallax-layer" data-depth="0.4">
+        <img
+          src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=1800&q=80&auto=format&fit=crop"
+          alt="Quiet interior vignette: a low travertine table, a slumped glass vase, soft afternoon light on a linen armchair."
+          class="w-full h-full object-cover"
+          style="transform: scale(1.06);"
+        />
+        <div class="absolute inset-0" style="background: linear-gradient(180deg, rgba(245,242,236,0.10) 0%, rgba(245,242,236,0.28) 100%);"></div>
+      </div>
+
+      <!-- Layered SVG monogram — V and I at different parallax depths -->
+      <div class="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
+        <!-- Background "I" — slowest, most distant -->
+        <div
+          class="parallax-layer absolute"
+          data-depth="0.9"
+          style="top: 50%; left: 64%; transform: translate(-50%,-50%); will-change: transform;"
+        >
+          <svg viewBox="0 0 100 320" style="width: clamp(8rem, 16vw, 18rem); height: auto; display: block;">
+            <rect x="20" y="0" width="60" height="320" fill="#1A1A1A" opacity="0.06"/>
+          </svg>
+        </div>
+
+        <!-- Foreground "V" — faster, nearer the viewer -->
+        <div
+          class="parallax-layer absolute"
+          data-depth="2.4"
+          style="top: 52%; left: 36%; transform: translate(-50%,-50%); will-change: transform;"
+        >
+          <svg viewBox="0 0 360 320" style="width: clamp(20rem, 38vw, 44rem); height: auto; display: block;">
+            <!-- Stroke chevron path forming a V -->
+            <path
+              d="M 0 0 L 60 0 L 180 240 L 300 0 L 360 0 L 200 320 L 160 320 Z"
+              fill="#1A1A1A"
+              opacity="0.10"
+            />
+          </svg>
+        </div>
+
+        <!-- Tiny accent dot at the V's apex — clay accent, highest depth -->
+        <div
+          class="parallax-layer absolute"
+          data-depth="3.6"
+          style="top: 70%; left: 36%; transform: translate(-50%,-50%); will-change: transform;"
+        >
+          <span style="display:block; width:10px; height:10px; border-radius:9999px; background:#7C4A2C; opacity:0.55;"></span>
+        </div>
+      </div>
+
+      <!-- Foreground text card (closest layer, moves most) -->
+      <div class="absolute left-6 md:left-10 bottom-6 md:bottom-10 max-w-md parallax-layer" data-depth="-1.4">
+        <div class="bg-bg p-7 md:p-9">
+          <p class="eyebrow mb-5">Collection 04 — Spring 2026</p>
+          <h1 class="font-display font-medium text-ink leading-[1.15]" style="font-size: clamp(1.5rem, 2.4vw, 2rem);">
+            Furniture for Vietnamese homes,<br/>made by hand.
+          </h1>
+          <a href="#collection" class="inline-block mt-7 text-[12px] tracking-micro uppercase always-underline cursor-pointer">
+            View the Collection &nbsp;→
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    (function () {
+      var stage = document.getElementById('hero-stage');
+      if (!stage) return;
+      if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+      var layers = stage.querySelectorAll('.parallax-layer');
+      var rect = stage.getBoundingClientRect();
+      var targetX = 0, targetY = 0, currentX = 0, currentY = 0;
+      var raf;
+
+      function onResize() { rect = stage.getBoundingClientRect(); }
+      window.addEventListener('resize', onResize, { passive: true });
+      window.addEventListener('scroll', onResize, { passive: true });
+
+      function onMove(clientX, clientY) {
+        // Normalised −1..1 from stage center
+        var nx = ((clientX - rect.left) / rect.width  - 0.5) * 2;
+        var ny = ((clientY - rect.top)  / rect.height - 0.5) * 2;
+        targetX = Math.max(-1, Math.min(1, nx));
+        targetY = Math.max(-1, Math.min(1, ny));
+        if (!raf) raf = requestAnimationFrame(tick);
+      }
+
+      stage.addEventListener('mousemove', function (e) { onMove(e.clientX, e.clientY); });
+      stage.addEventListener('mouseleave', function () { targetX = 0; targetY = 0; if (!raf) raf = requestAnimationFrame(tick); });
+
+      // Subtle device-tilt support
+      window.addEventListener('deviceorientation', function (e) {
+        if (e.gamma == null || e.beta == null) return;
+        targetX = Math.max(-1, Math.min(1, e.gamma / 30));
+        targetY = Math.max(-1, Math.min(1, e.beta  / 60));
+        if (!raf) raf = requestAnimationFrame(tick);
+      }, { passive: true });
+
+      function tick() {
+        // Easing toward target — slow, editorial
+        currentX += (targetX - currentX) * 0.06;
+        currentY += (targetY - currentY) * 0.06;
+
+        layers.forEach(function (el) {
+          var depth = parseFloat(el.getAttribute('data-depth')) || 1;
+          var tx = currentX * depth * -10;   // px
+          var ty = currentY * depth * -10;
+          var ry = currentX * depth * 1.2;   // deg
+          var rx = -currentY * depth * 0.8;
+          el.style.transform =
+            'translate3d(' + tx.toFixed(2) + 'px,' + ty.toFixed(2) + 'px,0) ' +
+            'rotateX(' + rx.toFixed(2) + 'deg) rotateY(' + ry.toFixed(2) + 'deg)';
+        });
+
+        if (Math.abs(targetX - currentX) > 0.001 || Math.abs(targetY - currentY) > 0.001) {
+          raf = requestAnimationFrame(tick);
+        } else {
+          raf = null;
+        }
+      }
+    })();
+  </script>
+
+  <!-- ───────────────────────── FEATURED PIECES ───────────────────────── -->
+  <section id="collection" class="py-24 md:py-32">
+    <div class="mx-auto max-w-[1440px] px-6 md:px-10">
+
+      <div class="flex items-end justify-between mb-14 md:mb-20">
+        <div>
+          <p class="eyebrow mb-4">Featured — Four pieces</p>
+          <h2 class="font-display font-medium leading-[1.1]" style="font-size: clamp(1.75rem, 3vw, 2.75rem);">
+            New for the season.
+          </h2>
+        </div>
+        <a href="#" class="hidden md:inline text-[11px] tracking-micro uppercase link-underline cursor-pointer">All pieces &nbsp;→</a>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-20">
+
+        <a href="#" class="group block cursor-pointer">
+          <div class="overflow-hidden bg-surface" style="aspect-ratio: 4/5;">
+            <img src="https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?w=1200&q=80&auto=format&fit=crop"
+                 alt="Mộc lounge chair in oiled walnut with woven rattan seat"
+                 class="w-full h-full object-cover" />
+          </div>
+          <div class="pt-5">
+            <p class="eyebrow mb-2">Atelier Edition</p>
+            <div class="flex items-baseline justify-between gap-6">
+              <div>
+                <h3 class="font-display font-medium text-[17px] link-underline inline">Mộc Lounge Chair</h3>
+                <p class="text-muted text-[13px] mt-1">Oiled walnut, hand-woven rattan — by Linh Trần</p>
+              </div>
+              <p class="font-display text-[14px] whitespace-nowrap">42.500.000 ₫</p>
+            </div>
+            <hr class="hairline border-t mt-7"/>
+          </div>
+        </a>
+
+        <a href="#" class="group block md:mt-24 cursor-pointer">
+          <div class="overflow-hidden bg-surface" style="aspect-ratio: 4/5;">
+            <img src="https://images.unsplash.com/photo-1532372320572-cda25653a26d?w=1200&q=80&auto=format&fit=crop"
+                 alt="Slumped glass pendant lamp casting soft amber light"
+                 class="w-full h-full object-cover" />
+          </div>
+          <div class="pt-5">
+            <p class="eyebrow mb-2">New</p>
+            <div class="flex items-baseline justify-between gap-6">
+              <div>
+                <h3 class="font-display font-medium text-[17px] link-underline inline">Sương Pendant 02</h3>
+                <p class="text-muted text-[13px] mt-1">Slumped glass, brushed brass — by Quang Hà</p>
+              </div>
+              <p class="font-display text-[14px] whitespace-nowrap">9.800.000 ₫</p>
+            </div>
+            <hr class="hairline border-t mt-7"/>
+          </div>
+        </a>
+
+        <a href="#" class="group block cursor-pointer">
+          <div class="overflow-hidden bg-surface" style="aspect-ratio: 4/5;">
+            <img src="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?w=1200&q=80&auto=format&fit=crop"
+                 alt="Low travertine coffee table with rounded edges in a sunlit room"
+                 class="w-full h-full object-cover" />
+          </div>
+          <div class="pt-5">
+            <p class="eyebrow mb-2">New</p>
+            <div class="flex items-baseline justify-between gap-6">
+              <div>
+                <h3 class="font-display font-medium text-[17px] link-underline inline">Đá Low Table</h3>
+                <p class="text-muted text-[13px] mt-1">Solid Vietnamese travertine — by the VI studio</p>
+              </div>
+              <p class="font-display text-[14px] whitespace-nowrap">28.000.000 ₫</p>
+            </div>
+            <hr class="hairline border-t mt-7"/>
+          </div>
+        </a>
+
+        <a href="#" class="group block md:mt-24 cursor-pointer">
+          <div class="overflow-hidden bg-surface" style="aspect-ratio: 4/5;">
+            <img src="https://images.unsplash.com/photo-1581539250439-c96689b516dd?w=1200&q=80&auto=format&fit=crop"
+                 alt="Stoneware vessel set in clay and ash glaze on linen"
+                 class="w-full h-full object-cover" />
+          </div>
+          <div class="pt-5">
+            <p class="eyebrow mb-2">Atelier Edition</p>
+            <div class="flex items-baseline justify-between gap-6">
+              <div>
+                <h3 class="font-display font-medium text-[17px] link-underline inline">Đất Vessel, Set of Three</h3>
+                <p class="text-muted text-[13px] mt-1">Stoneware, clay &amp; ash glaze — by Bảo Nguyễn</p>
+              </div>
+              <p class="font-display text-[14px] whitespace-nowrap">3.600.000 ₫</p>
+            </div>
+            <hr class="hairline border-t mt-7"/>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────────────────── EDITORIAL STORY STRIP ───────────────────────── -->
+  <section id="journal" class="py-24 md:py-32 border-t hairline">
+    <div class="mx-auto max-w-[1440px] px-6 md:px-10">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-16 items-center">
+
+        <div class="md:col-span-7">
+          <div class="overflow-hidden" style="aspect-ratio: 4/3;">
+            <img src="https://images.unsplash.com/photo-1611145434336-2324aa4079ce?w=1600&q=80&auto=format&fit=crop"
+                 alt="Inside the VI atelier in Bình Dương: a woodworker hand-finishing a chair leg in soft daylight."
+                 class="w-full h-full object-cover" />
+          </div>
+        </div>
+
+        <div class="md:col-span-5 md:pl-6">
+          <p class="eyebrow mb-5">Field Notes — №07</p>
+          <h2 class="font-display font-medium leading-[1.15] mb-8" style="font-size: clamp(1.5rem, 2.6vw, 2.25rem);">
+            From the atelier in Bình Dương.
+          </h2>
+          <div class="space-y-5 text-[15px] text-ink/85 max-w-prose">
+            <p>
+              Each piece begins in a low workshop on the edge of the rubber forest, where six craftspeople work to a quiet rhythm — sawing, oiling, joining. Nothing leaves the room until it has been touched by every set of hands.
+            </p>
+            <p>
+              We work almost entirely with regional materials: rubberwood and walnut from Đông Nam Bộ, river stone and travertine from Ninh Thuận, slumped glass from a small kiln north of Hà Nội. Slow furniture for a country in a hurry.
+            </p>
+          </div>
+          <a href="#" class="inline-block mt-9 text-[12px] tracking-micro uppercase always-underline cursor-pointer">
+            Read the journal &nbsp;→
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────────────────── CATEGORIES INDEX ───────────────────────── -->
+  <section class="py-24 md:py-32 border-t hairline">
+    <div class="mx-auto max-w-[1440px] px-6 md:px-10">
+
+      <div class="mb-14 md:mb-20">
+        <p class="eyebrow mb-4">Index</p>
+        <h2 class="font-display font-medium leading-[1.1]" style="font-size: clamp(1.75rem, 3vw, 2.75rem);">
+          Browse the studio.
+        </h2>
+      </div>
+
+      <ul>
+        <li>
+          <a href="#" class="group grid grid-cols-12 gap-6 items-center py-7 border-t hairline cursor-pointer">
+            <div class="col-span-7 md:col-span-4">
+              <h3 class="font-display font-medium leading-[1.1]" style="font-size: clamp(1.5rem, 2.4vw, 2rem);">
+                <span class="link-underline">Seating</span>
+              </h3>
+            </div>
+            <div class="col-span-12 md:col-span-5 order-3 md:order-2">
+              <p class="text-muted text-[14px] max-w-prose">Lounge chairs, dining chairs and benches in walnut, rubberwood and woven cane.</p>
+            </div>
+            <div class="col-span-5 md:col-span-3 flex justify-end order-2 md:order-3">
+              <div class="overflow-hidden" style="width: 120px; aspect-ratio: 4/3;">
+                <img src="https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?w=400&q=80&auto=format&fit=crop"
+                     alt="Seating preview: a single oiled walnut lounge chair." class="w-full h-full object-cover" />
+              </div>
+            </div>
+          </a>
+        </li>
+
+        <li>
+          <a href="#" class="group grid grid-cols-12 gap-6 items-center py-7 border-t hairline cursor-pointer">
+            <div class="col-span-7 md:col-span-4">
+              <h3 class="font-display font-medium leading-[1.1]" style="font-size: clamp(1.5rem, 2.4vw, 2rem);">
+                <span class="link-underline">Tables</span>
+              </h3>
+            </div>
+            <div class="col-span-12 md:col-span-5 order-3 md:order-2">
+              <p class="text-muted text-[14px] max-w-prose">Low tables in travertine and river stone; long dining tables in solid wood.</p>
+            </div>
+            <div class="col-span-5 md:col-span-3 flex justify-end order-2 md:order-3">
+              <div class="overflow-hidden" style="width: 120px; aspect-ratio: 4/3;">
+                <img src="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?w=400&q=80&auto=format&fit=crop"
+                     alt="Tables preview: a low travertine coffee table." class="w-full h-full object-cover" />
+              </div>
+            </div>
+          </a>
+        </li>
+
+        <li>
+          <a href="#" class="group grid grid-cols-12 gap-6 items-center py-7 border-t hairline cursor-pointer">
+            <div class="col-span-7 md:col-span-4">
+              <h3 class="font-display font-medium leading-[1.1]" style="font-size: clamp(1.5rem, 2.4vw, 2rem);">
+                <span class="link-underline">Lighting</span>
+              </h3>
+            </div>
+            <div class="col-span-12 md:col-span-5 order-3 md:order-2">
+              <p class="text-muted text-[14px] max-w-prose">Pendants, sconces and floor lamps in slumped glass, brushed brass and rice paper.</p>
+            </div>
+            <div class="col-span-5 md:col-span-3 flex justify-end order-2 md:order-3">
+              <div class="overflow-hidden" style="width: 120px; aspect-ratio: 4/3;">
+                <img src="https://images.unsplash.com/photo-1532372320572-cda25653a26d?w=400&q=80&auto=format&fit=crop"
+                     alt="Lighting preview: a single warm pendant against a cream wall." class="w-full h-full object-cover" />
+              </div>
+            </div>
+          </a>
+        </li>
+
+        <li>
+          <a href="#" class="group grid grid-cols-12 gap-6 items-center py-7 border-t hairline cursor-pointer">
+            <div class="col-span-7 md:col-span-4">
+              <h3 class="font-display font-medium leading-[1.1]" style="font-size: clamp(1.5rem, 2.4vw, 2rem);">
+                <span class="link-underline">Storage</span>
+              </h3>
+            </div>
+            <div class="col-span-12 md:col-span-5 order-3 md:order-2">
+              <p class="text-muted text-[14px] max-w-prose">Sideboards, cabinets and shelving — restrained joinery in rubberwood and ash.</p>
+            </div>
+            <div class="col-span-5 md:col-span-3 flex justify-end order-2 md:order-3">
+              <div class="overflow-hidden" style="width: 120px; aspect-ratio: 4/3;">
+                <img src="https://images.unsplash.com/photo-1616137422495-1e9e46e2aa77?w=400&q=80&auto=format&fit=crop"
+                     alt="Storage preview: a low wooden sideboard with brass handles." class="w-full h-full object-cover" />
+              </div>
+            </div>
+          </a>
+        </li>
+
+        <li>
+          <a href="#" class="group grid grid-cols-12 gap-6 items-center py-7 border-t border-b hairline cursor-pointer">
+            <div class="col-span-7 md:col-span-4">
+              <h3 class="font-display font-medium leading-[1.1]" style="font-size: clamp(1.5rem, 2.4vw, 2rem);">
+                <span class="link-underline">Objects</span>
+              </h3>
+            </div>
+            <div class="col-span-12 md:col-span-5 order-3 md:order-2">
+              <p class="text-muted text-[14px] max-w-prose">Stoneware vessels, hand-thrown bowls, and small brass for the table.</p>
+            </div>
+            <div class="col-span-5 md:col-span-3 flex justify-end order-2 md:order-3">
+              <div class="overflow-hidden" style="width: 120px; aspect-ratio: 4/3;">
+                <img src="https://images.unsplash.com/photo-1581539250439-c96689b516dd?w=400&q=80&auto=format&fit=crop"
+                     alt="Objects preview: three stoneware vessels arranged on linen." class="w-full h-full object-cover" />
+              </div>
+            </div>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ───────────────────────── PRESS ROW ───────────────────────── -->
+  <section class="border-t hairline">
+    <div class="mx-auto max-w-[1440px] px-6 md:px-10 py-10 md:py-14">
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+        <p class="eyebrow">As seen in</p>
+        <ul class="flex flex-wrap items-center gap-x-10 gap-y-4 text-[12px] tracking-micro uppercase text-muted">
+          <li class="font-display">ELLE Decor</li>
+          <li class="font-display">Architectural Digest VN</li>
+          <li class="font-display">Wallpaper*</li>
+          <li class="font-display">Monocle</li>
+          <li class="font-display">Kinfolk</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────────────────── DESIGNER SPOTLIGHT ───────────────────────── -->
+  <section class="py-24 md:py-32 border-t hairline">
+    <div class="mx-auto max-w-[1440px] px-6 md:px-10">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-16 items-center">
+
+        <div class="md:col-span-6">
+          <div class="overflow-hidden" style="aspect-ratio: 4/5;">
+            <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?w=1200&q=80&auto=format&fit=crop"
+                 alt="Portrait of Linh Trần in the workshop, soft daylight from a high window."
+                 class="w-full h-full object-cover" />
+          </div>
+        </div>
+
+        <div class="md:col-span-6 md:pl-8">
+          <p class="eyebrow mb-6">In Conversation</p>
+          <blockquote class="font-display font-medium leading-[1.25] text-ink" style="font-size: clamp(1.4rem, 2.2vw, 1.9rem);">
+            “A chair is mostly silence. The wood does the talking — our work is to listen carefully and then get out of the way.”
+          </blockquote>
+          <div class="mt-10">
+            <p class="font-display text-[15px]">Linh Trần</p>
+            <p class="text-muted text-[13px] mt-1">Lead designer, Seating &amp; Joinery</p>
+          </div>
+          <a href="#" class="inline-block mt-10 text-[12px] tracking-micro uppercase always-underline cursor-pointer">
+            Read the interview &nbsp;→
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────────────────── NEWSLETTER ───────────────────────── -->
+  <section class="py-24 md:py-32 border-t hairline">
+    <div class="mx-auto max-w-md px-6 text-center">
+      <p class="eyebrow mb-5">№ Dispatch</p>
+      <h2 class="font-display font-medium leading-[1.2] mb-5" style="font-size: clamp(1.4rem, 2vw, 1.75rem);">
+        Subscribe to the Atelier Dispatch.
+      </h2>
+      <p class="text-muted text-[14px] mb-10">
+        A short note four times a year — new pieces, field notes from Bình Dương, the occasional invitation.
       </p>
 
-      <div class="mt-8 flex flex-wrap items-center gap-3">
-        <a href="#products" class="btn cursor-pointer inline-flex items-center gap-2 px-6 h-14 rounded-2xl bg-cta text-white font-semibold tracking-wide shadow-float hover:bg-orange-600">
-          Shop the Collection
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-        </a>
-        <a href="#newsletter" class="btn cursor-pointer inline-flex items-center gap-2 px-6 h-14 rounded-2xl glass text-ink font-semibold tracking-wide hover:bg-white">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 11h18"/></svg>
-          Book a Consultation
-        </a>
+      <form onsubmit="event.preventDefault();" class="flex items-center gap-3">
+        <label class="sr-only" for="dispatch-email">Email address</label>
+        <input id="dispatch-email" type="email" required placeholder="your@email" class="line-input text-[14px] placeholder:text-muted" />
+        <button type="submit" aria-label="Subscribe" class="text-[12px] tracking-micro uppercase always-underline whitespace-nowrap cursor-pointer">
+          Subscribe →
+        </button>
+      </form>
+      <p class="eyebrow mt-6 text-[10px]">Unsubscribe at any time.</p>
+    </div>
+  </section>
+
+  <!-- ───────────────────────── FOOTER ───────────────────────── -->
+  <footer class="border-t hairline">
+    <div class="mx-auto max-w-[1440px] px-6 md:px-10 pt-16 pb-10">
+
+      <div class="grid grid-cols-2 md:grid-cols-12 gap-10">
+
+        <div class="col-span-2 md:col-span-3">
+          <p class="font-display text-[15px] tracking-micro uppercase font-medium">VI</p>
+          <p class="text-muted text-[13px] mt-4 max-w-[24ch]">A Bình Dương–made furniture studio. Slow objects for the modern Vietnamese home.</p>
+        </div>
+
+        <div class="md:col-span-3">
+          <p class="eyebrow mb-5">Visit</p>
+          <ul class="space-y-3 text-[13px]">
+            <li>
+              <p class="font-display">Hà Nội Showroom</p>
+              <p class="text-muted">14 Nhà Chung, Hoàn Kiếm</p>
+            </li>
+            <li>
+              <p class="font-display">Sài Gòn Showroom</p>
+              <p class="text-muted">9 Đồng Khởi, District 1</p>
+            </li>
+            <li>
+              <p class="font-display">Bình Dương Atelier</p>
+              <p class="text-muted">By appointment only</p>
+            </li>
+          </ul>
+        </div>
+
+        <div class="md:col-span-2">
+          <p class="eyebrow mb-5">Shop</p>
+          <ul class="space-y-2 text-[13px]">
+            <li><a href="#" class="link-underline cursor-pointer">Seating</a></li>
+            <li><a href="#" class="link-underline cursor-pointer">Tables</a></li>
+            <li><a href="#" class="link-underline cursor-pointer">Lighting</a></li>
+            <li><a href="#" class="link-underline cursor-pointer">Storage</a></li>
+            <li><a href="#" class="link-underline cursor-pointer">Objects</a></li>
+            <li><a href="#" class="link-underline cursor-pointer">Atelier Editions</a></li>
+          </ul>
+        </div>
+
+        <div class="md:col-span-2">
+          <p class="eyebrow mb-5">Studio</p>
+          <ul class="space-y-2 text-[13px]">
+            <li><a href="#" class="link-underline cursor-pointer">About</a></li>
+            <li><a href="#" class="link-underline cursor-pointer">Materials</a></li>
+            <li><a href="#" class="link-underline cursor-pointer">Journal</a></li>
+            <li><a href="#" class="link-underline cursor-pointer">Trade program</a></li>
+            <li><a href="#" class="link-underline cursor-pointer">Press</a></li>
+          </ul>
+        </div>
+
+        <div class="md:col-span-2">
+          <p class="eyebrow mb-5">Connect</p>
+          <ul class="space-y-2 text-[13px]">
+            <li><a href="#" class="link-underline cursor-pointer">Instagram</a></li>
+            <li><a href="#" class="link-underline cursor-pointer">Are.na</a></li>
+            <li><a href="#" class="link-underline cursor-pointer">Contact</a></li>
+            <li><a href="#" class="link-underline cursor-pointer">Care &amp; repair</a></li>
+          </ul>
+        </div>
       </div>
 
-      <!-- Trust pills -->
-      <div class="mt-10 grid grid-cols-3 gap-3 sm:gap-6 max-w-lg">
-        <div>
-          <div class="font-display text-2xl text-ink">11k+</div>
-          <div class="text-xs uppercase tracking-widest text-warm mt-1">Vietnamese homes</div>
-        </div>
-        <div>
-          <div class="font-display text-2xl text-ink">4.9<span class="text-gold">★</span></div>
-          <div class="text-xs uppercase tracking-widest text-warm mt-1">2,400 reviews</div>
-        </div>
-        <div>
-          <div class="font-display text-2xl text-ink">10 yr</div>
-          <div class="text-xs uppercase tracking-widest text-warm mt-1">Atelier warranty</div>
-        </div>
+      <div class="mt-16 pt-6 border-t hairline flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-[11px] tracking-micro uppercase text-muted">
+        <p>© 2026 VI &nbsp;·&nbsp; <a href="#" class="link-underline cursor-pointer">Privacy</a> &nbsp;·&nbsp; <a href="#" class="link-underline cursor-pointer">Terms</a></p>
+        <p>A Bình Dương–made object.</p>
       </div>
     </div>
-
-    <!-- Floating product card -->
-    <div class="lg:col-span-5 relative hidden lg:block">
-      <div class="relative animate-floatY">
-        <div class="absolute -inset-6 bg-gradient-to-br from-gold/30 to-primary/20 rounded-[2rem] blur-2xl"></div>
-        <div class="relative glass liquid-edge rounded-[2rem] p-5 shadow-glass">
-          <div class="relative rounded-2xl overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1540574163026-643ea20ade25?auto=format&fit=crop&w=1200&q=80"
-                 alt="Featured sofa" class="w-full h-[420px] object-cover" />
-            <span class="absolute top-4 left-4 px-3 py-1 rounded-full glass-gold text-[11px] tracking-widest uppercase font-semibold text-ink">New · Mùa Thu '26</span>
-          </div>
-          <div class="mt-4 flex items-end justify-between gap-4">
-            <div>
-              <div class="font-display text-lg text-ink">Hạ Long Sectional</div>
-              <div class="text-xs text-warm uppercase tracking-widest mt-1">Linen · Walnut frame</div>
-            </div>
-            <div class="text-right">
-              <div class="text-[11px] uppercase tracking-widest text-warm">From</div>
-              <div class="font-display text-xl text-ink">₫48.900.000</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- swatches floater -->
-        <div class="absolute -left-8 bottom-10 glass rounded-2xl p-3 flex items-center gap-2 shadow-glass">
-          <span class="w-6 h-6 rounded-full bg-[#C9A96E] ring-2 ring-white"></span>
-          <span class="w-6 h-6 rounded-full bg-[#5C4A38] ring-2 ring-white"></span>
-          <span class="w-6 h-6 rounded-full bg-[#E8E2D5] ring-2 ring-white"></span>
-          <span class="w-6 h-6 rounded-full bg-[#1E293B] ring-2 ring-white"></span>
-          <span class="text-[10px] uppercase tracking-widest text-warm pr-1">+8</span>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Scroll cue -->
-  <div class="absolute bottom-6 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-2 text-warm text-[11px] uppercase tracking-[0.35em]">
-    Scroll
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-4 h-4"><path d="M12 5v14M6 13l6 6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-  </div>
-</section>
-
-<!-- ===================== TRUST MARQUEE ===================== -->
-<section aria-label="As featured in" class="border-y border-ink/5 bg-white/40 py-6 overflow-hidden">
-  <div class="max-w-7xl mx-auto px-4 flex items-center gap-8">
-    <span class="text-[11px] uppercase tracking-[0.35em] text-warm font-semibold whitespace-nowrap hidden md:inline">As featured in</span>
-    <div class="flex-1 overflow-hidden relative">
-      <div class="marquee-track flex gap-14 items-center w-max font-display text-ink/40 text-xl tracking-widest">
-        <span>ELLE DECOR</span><span>VOGUE VN</span><span>HOUSE &amp; HOME</span><span>SAIGONEER</span><span>ARCHDAILY</span><span>VIETCETERA</span>
-        <span>ELLE DECOR</span><span>VOGUE VN</span><span>HOUSE &amp; HOME</span><span>SAIGONEER</span><span>ARCHDAILY</span><span>VIETCETERA</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== CATEGORIES ===================== -->
-<section id="categories" class="relative py-20 md:py-28">
-  <div class="max-w-7xl mx-auto px-4 md:px-8">
-    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
-      <div>
-        <div class="flex items-center gap-3 mb-3">
-          <span class="h-px w-8 bg-gold"></span>
-          <span class="text-[11px] tracking-[0.35em] uppercase text-warm font-semibold">Bộ Sưu Tập · Collections</span>
-        </div>
-        <h2 class="font-display text-3xl md:text-5xl text-ink text-balance max-w-xl">A room for every ritual of the Vietnamese home.</h2>
-      </div>
-      <a href="#products" class="btn cursor-pointer inline-flex items-center gap-2 text-ink font-semibold underline-grow self-start md:self-end">
-        Browse all categories
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4"><path d="M5 12h14M13 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </a>
-    </div>
-
-    <div class="grid grid-cols-2 md:grid-cols-6 gap-4 md:gap-5">
-      <!-- Sofas: spans 2 -->
-      <a class="group relative md:col-span-2 md:row-span-2 cursor-pointer rounded-3xl overflow-hidden lift glass" href="#products">
-        <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1400&q=80"
-             alt="Sofas" class="img-hover w-full h-64 md:h-full object-cover" />
-        <div class="absolute inset-0 bg-gradient-to-t from-ink/70 via-ink/20 to-transparent"></div>
-        <div class="absolute left-5 bottom-5 right-5 flex items-end justify-between">
-          <div class="text-white">
-            <div class="text-[11px] tracking-[0.3em] uppercase text-white/70">01 / Sofas</div>
-            <div class="font-display text-2xl md:text-3xl">Phòng Khách</div>
-          </div>
-          <span class="glass w-11 h-11 rounded-full grid place-items-center">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="w-5 h-5 text-ink"><path d="M5 12h14M13 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </span>
-        </div>
-      </a>
-
-      <a class="group relative md:col-span-2 cursor-pointer rounded-3xl overflow-hidden lift glass" href="#products">
-        <img src="https://images.unsplash.com/photo-1617806118233-18e1de247200?auto=format&fit=crop&w=1200&q=80"
-             alt="Dining" class="img-hover w-full h-44 object-cover" />
-        <div class="absolute inset-0 bg-gradient-to-t from-ink/70 to-transparent"></div>
-        <div class="absolute left-5 bottom-4 text-white">
-          <div class="text-[11px] tracking-[0.3em] uppercase text-white/70">02 / Dining</div>
-          <div class="font-display text-xl">Phòng Ăn</div>
-        </div>
-      </a>
-
-      <a class="group relative md:col-span-2 cursor-pointer rounded-3xl overflow-hidden lift glass" href="#products">
-        <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=80"
-             alt="Bedroom" class="img-hover w-full h-44 object-cover" />
-        <div class="absolute inset-0 bg-gradient-to-t from-ink/70 to-transparent"></div>
-        <div class="absolute left-5 bottom-4 text-white">
-          <div class="text-[11px] tracking-[0.3em] uppercase text-white/70">03 / Bedroom</div>
-          <div class="font-display text-xl">Phòng Ngủ</div>
-        </div>
-      </a>
-
-      <a class="group relative md:col-span-3 cursor-pointer rounded-3xl overflow-hidden lift glass" href="#products">
-        <img src="https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?auto=format&fit=crop&w=1400&q=80"
-             alt="Lighting" class="img-hover w-full h-48 object-cover" />
-        <div class="absolute inset-0 bg-gradient-to-t from-ink/70 to-transparent"></div>
-        <div class="absolute left-5 bottom-4 text-white">
-          <div class="text-[11px] tracking-[0.3em] uppercase text-white/70">04 / Lighting</div>
-          <div class="font-display text-xl">Đèn &amp; Ánh Sáng</div>
-        </div>
-      </a>
-
-      <a class="group relative md:col-span-3 cursor-pointer rounded-3xl overflow-hidden lift glass" href="#products">
-        <img src="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?auto=format&fit=crop&w=1400&q=80"
-             alt="Decor" class="img-hover w-full h-48 object-cover" />
-        <div class="absolute inset-0 bg-gradient-to-t from-ink/70 to-transparent"></div>
-        <div class="absolute left-5 bottom-4 text-white">
-          <div class="text-[11px] tracking-[0.3em] uppercase text-white/70">05 / Decor</div>
-          <div class="font-display text-xl">Trang Trí</div>
-        </div>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== FEATURED PRODUCTS ===================== -->
-<section id="products" class="relative py-20 md:py-28 bg-gradient-to-b from-paper to-white overflow-hidden">
-  <div class="mesh">
-    <div class="blob w-[500px] h-[500px] bg-primary/15 -top-32 right-0"></div>
-    <div class="blob w-[400px] h-[400px] bg-gold/20 bottom-0 -left-20"></div>
-  </div>
-
-  <div class="relative max-w-7xl mx-auto px-4 md:px-8">
-    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10 md:mb-14">
-      <div>
-        <div class="flex items-center gap-3 mb-3">
-          <span class="h-px w-8 bg-gold"></span>
-          <span class="text-[11px] tracking-[0.35em] uppercase text-warm font-semibold">Bán Chạy · Editor's Picks</span>
-        </div>
-        <h2 class="font-display text-3xl md:text-5xl text-ink text-balance max-w-2xl">Hand-finished pieces, ready to ship across Việt Nam.</h2>
-      </div>
-
-      <div class="flex flex-wrap gap-2 text-sm">
-        <button class="btn cursor-pointer px-4 h-10 rounded-xl bg-ink text-white font-medium">All</button>
-        <button class="btn cursor-pointer px-4 h-10 rounded-xl glass text-ink hover:bg-white">Sofas</button>
-        <button class="btn cursor-pointer px-4 h-10 rounded-xl glass text-ink hover:bg-white">Dining</button>
-        <button class="btn cursor-pointer px-4 h-10 rounded-xl glass text-ink hover:bg-white">Bedroom</button>
-        <button class="btn cursor-pointer px-4 h-10 rounded-xl glass text-ink hover:bg-white">Lighting</button>
-      </div>
-    </div>
-
-    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
-      <!-- Product Card Template (8 cards) -->
-
-      <!-- 1 -->
-      <article class="group glass liquid-edge rounded-3xl p-3 lift cursor-pointer">
-        <div class="relative rounded-2xl overflow-hidden bg-paper aspect-[4/5]">
-          <img src="https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?auto=format&fit=crop&w=900&q=80" alt="" class="img-hover w-full h-full object-cover" />
-          <span class="absolute top-3 left-3 text-[10px] tracking-widest uppercase glass-gold rounded-full px-2.5 py-1 font-semibold text-ink">New</span>
-          <button aria-label="Wishlist" class="absolute top-3 right-3 w-9 h-9 grid place-items-center rounded-full glass cursor-pointer hover:bg-white">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" class="w-4 h-4 text-ink"><path d="M12 21s-7-4.35-9.5-9A5.5 5.5 0 0 1 12 6a5.5 5.5 0 0 1 9.5 6c-2.5 4.65-9.5 9-9.5 9Z" stroke-linejoin="round"/></svg>
-          </button>
-          <div class="absolute inset-x-3 bottom-3 translate-y-3 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
-            <button class="w-full glass-dark text-white text-sm font-semibold rounded-xl h-11 cursor-pointer hover:bg-ink">Add to cart</button>
-          </div>
-        </div>
-        <div class="px-2 pt-3 pb-2 flex items-start justify-between gap-2">
-          <div>
-            <div class="text-[10px] tracking-widest uppercase text-warm">Sofa · 3-seat</div>
-            <h3 class="font-display text-base text-ink leading-tight mt-1">Mekong Lounge</h3>
-          </div>
-          <div class="text-right">
-            <div class="font-display text-base text-ink">₫32.500.000</div>
-            <div class="text-[11px] text-warm">4.9 ★ (218)</div>
-          </div>
-        </div>
-      </article>
-
-      <!-- 2 -->
-      <article class="group glass liquid-edge rounded-3xl p-3 lift cursor-pointer">
-        <div class="relative rounded-2xl overflow-hidden bg-paper aspect-[4/5]">
-          <img src="https://images.unsplash.com/photo-1530018607912-eff2daa1bac4?auto=format&fit=crop&w=900&q=80" alt="" class="img-hover w-full h-full object-cover" />
-          <span class="absolute top-3 left-3 text-[10px] tracking-widest uppercase rounded-full px-2.5 py-1 font-semibold text-white bg-cta">-15%</span>
-          <button aria-label="Wishlist" class="absolute top-3 right-3 w-9 h-9 grid place-items-center rounded-full glass cursor-pointer hover:bg-white">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" class="w-4 h-4 text-ink"><path d="M12 21s-7-4.35-9.5-9A5.5 5.5 0 0 1 12 6a5.5 5.5 0 0 1 9.5 6c-2.5 4.65-9.5 9-9.5 9Z" stroke-linejoin="round"/></svg>
-          </button>
-          <div class="absolute inset-x-3 bottom-3 translate-y-3 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
-            <button class="w-full glass-dark text-white text-sm font-semibold rounded-xl h-11 cursor-pointer hover:bg-ink">Add to cart</button>
-          </div>
-        </div>
-        <div class="px-2 pt-3 pb-2 flex items-start justify-between gap-2">
-          <div>
-            <div class="text-[10px] tracking-widest uppercase text-warm">Dining · 6-seat</div>
-            <h3 class="font-display text-base text-ink leading-tight mt-1">Hội An Oak Table</h3>
-          </div>
-          <div class="text-right">
-            <div class="font-display text-base text-ink">₫24.900.000</div>
-            <div class="text-[11px] price-strike">₫29.500.000</div>
-          </div>
-        </div>
-      </article>
-
-      <!-- 3 -->
-      <article class="group glass liquid-edge rounded-3xl p-3 lift cursor-pointer">
-        <div class="relative rounded-2xl overflow-hidden bg-paper aspect-[4/5]">
-          <img src="https://images.unsplash.com/photo-1631679706909-1844bbd07221?auto=format&fit=crop&w=900&q=80" alt="" class="img-hover w-full h-full object-cover" />
-          <button aria-label="Wishlist" class="absolute top-3 right-3 w-9 h-9 grid place-items-center rounded-full glass cursor-pointer hover:bg-white">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" class="w-4 h-4 text-ink"><path d="M12 21s-7-4.35-9.5-9A5.5 5.5 0 0 1 12 6a5.5 5.5 0 0 1 9.5 6c-2.5 4.65-9.5 9-9.5 9Z" stroke-linejoin="round"/></svg>
-          </button>
-          <div class="absolute inset-x-3 bottom-3 translate-y-3 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
-            <button class="w-full glass-dark text-white text-sm font-semibold rounded-xl h-11 cursor-pointer hover:bg-ink">Add to cart</button>
-          </div>
-        </div>
-        <div class="px-2 pt-3 pb-2 flex items-start justify-between gap-2">
-          <div>
-            <div class="text-[10px] tracking-widest uppercase text-warm">Bedroom · King</div>
-            <h3 class="font-display text-base text-ink leading-tight mt-1">Sapa Canopy Bed</h3>
-          </div>
-          <div class="text-right">
-            <div class="font-display text-base text-ink">₫56.000.000</div>
-            <div class="text-[11px] text-warm">4.8 ★ (94)</div>
-          </div>
-        </div>
-      </article>
-
-      <!-- 4 -->
-      <article class="group glass liquid-edge rounded-3xl p-3 lift cursor-pointer">
-        <div class="relative rounded-2xl overflow-hidden bg-paper aspect-[4/5]">
-          <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=900&q=80" alt="" class="img-hover w-full h-full object-cover" />
-          <span class="absolute top-3 left-3 text-[10px] tracking-widest uppercase glass-gold rounded-full px-2.5 py-1 font-semibold text-ink">Bestseller</span>
-          <button aria-label="Wishlist" class="absolute top-3 right-3 w-9 h-9 grid place-items-center rounded-full glass cursor-pointer hover:bg-white">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" class="w-4 h-4 text-ink"><path d="M12 21s-7-4.35-9.5-9A5.5 5.5 0 0 1 12 6a5.5 5.5 0 0 1 9.5 6c-2.5 4.65-9.5 9-9.5 9Z" stroke-linejoin="round"/></svg>
-          </button>
-          <div class="absolute inset-x-3 bottom-3 translate-y-3 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
-            <button class="w-full glass-dark text-white text-sm font-semibold rounded-xl h-11 cursor-pointer hover:bg-ink">Add to cart</button>
-          </div>
-        </div>
-        <div class="px-2 pt-3 pb-2 flex items-start justify-between gap-2">
-          <div>
-            <div class="text-[10px] tracking-widest uppercase text-warm">Lighting · Pendant</div>
-            <h3 class="font-display text-base text-ink leading-tight mt-1">Hanoi Rattan Lantern</h3>
-          </div>
-          <div class="text-right">
-            <div class="font-display text-base text-ink">₫4.200.000</div>
-            <div class="text-[11px] text-warm">4.9 ★ (511)</div>
-          </div>
-        </div>
-      </article>
-
-      <!-- 5 -->
-      <article class="group glass liquid-edge rounded-3xl p-3 lift cursor-pointer">
-        <div class="relative rounded-2xl overflow-hidden bg-paper aspect-[4/5]">
-          <img src="https://images.unsplash.com/photo-1519710164239-da123dc03ef4?auto=format&fit=crop&w=900&q=80" alt="" class="img-hover w-full h-full object-cover" />
-          <button aria-label="Wishlist" class="absolute top-3 right-3 w-9 h-9 grid place-items-center rounded-full glass cursor-pointer hover:bg-white">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" class="w-4 h-4 text-ink"><path d="M12 21s-7-4.35-9.5-9A5.5 5.5 0 0 1 12 6a5.5 5.5 0 0 1 9.5 6c-2.5 4.65-9.5 9-9.5 9Z" stroke-linejoin="round"/></svg>
-          </button>
-          <div class="absolute inset-x-3 bottom-3 translate-y-3 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
-            <button class="w-full glass-dark text-white text-sm font-semibold rounded-xl h-11 cursor-pointer hover:bg-ink">Add to cart</button>
-          </div>
-        </div>
-        <div class="px-2 pt-3 pb-2 flex items-start justify-between gap-2">
-          <div>
-            <div class="text-[10px] tracking-widest uppercase text-warm">Sofa · 2-seat</div>
-            <h3 class="font-display text-base text-ink leading-tight mt-1">Đà Lạt Velvet</h3>
-          </div>
-          <div class="text-right">
-            <div class="font-display text-base text-ink">₫21.800.000</div>
-            <div class="text-[11px] text-warm">5.0 ★ (132)</div>
-          </div>
-        </div>
-      </article>
-
-      <!-- 6 -->
-      <article class="group glass liquid-edge rounded-3xl p-3 lift cursor-pointer">
-        <div class="relative rounded-2xl overflow-hidden bg-paper aspect-[4/5]">
-          <img src="https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?auto=format&fit=crop&w=900&q=80" alt="" class="img-hover w-full h-full object-cover" />
-          <span class="absolute top-3 left-3 text-[10px] tracking-widest uppercase glass-gold rounded-full px-2.5 py-1 font-semibold text-ink">Bespoke</span>
-          <button aria-label="Wishlist" class="absolute top-3 right-3 w-9 h-9 grid place-items-center rounded-full glass cursor-pointer hover:bg-white">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" class="w-4 h-4 text-ink"><path d="M12 21s-7-4.35-9.5-9A5.5 5.5 0 0 1 12 6a5.5 5.5 0 0 1 9.5 6c-2.5 4.65-9.5 9-9.5 9Z" stroke-linejoin="round"/></svg>
-          </button>
-          <div class="absolute inset-x-3 bottom-3 translate-y-3 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
-            <button class="w-full glass-dark text-white text-sm font-semibold rounded-xl h-11 cursor-pointer hover:bg-ink">Add to cart</button>
-          </div>
-        </div>
-        <div class="px-2 pt-3 pb-2 flex items-start justify-between gap-2">
-          <div>
-            <div class="text-[10px] tracking-widest uppercase text-warm">Decor · Vase</div>
-            <h3 class="font-display text-base text-ink leading-tight mt-1">Bát Tràng Stoneware</h3>
-          </div>
-          <div class="text-right">
-            <div class="font-display text-base text-ink">₫1.850.000</div>
-            <div class="text-[11px] text-warm">4.7 ★ (76)</div>
-          </div>
-        </div>
-      </article>
-
-      <!-- 7 -->
-      <article class="group glass liquid-edge rounded-3xl p-3 lift cursor-pointer">
-        <div class="relative rounded-2xl overflow-hidden bg-paper aspect-[4/5]">
-          <img src="https://images.unsplash.com/photo-1538688525198-9b88f6f53126?auto=format&fit=crop&w=900&q=80" alt="" class="img-hover w-full h-full object-cover" />
-          <button aria-label="Wishlist" class="absolute top-3 right-3 w-9 h-9 grid place-items-center rounded-full glass cursor-pointer hover:bg-white">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" class="w-4 h-4 text-ink"><path d="M12 21s-7-4.35-9.5-9A5.5 5.5 0 0 1 12 6a5.5 5.5 0 0 1 9.5 6c-2.5 4.65-9.5 9-9.5 9Z" stroke-linejoin="round"/></svg>
-          </button>
-          <div class="absolute inset-x-3 bottom-3 translate-y-3 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
-            <button class="w-full glass-dark text-white text-sm font-semibold rounded-xl h-11 cursor-pointer hover:bg-ink">Add to cart</button>
-          </div>
-        </div>
-        <div class="px-2 pt-3 pb-2 flex items-start justify-between gap-2">
-          <div>
-            <div class="text-[10px] tracking-widest uppercase text-warm">Dining · Chair</div>
-            <h3 class="font-display text-base text-ink leading-tight mt-1">Saigon Cane Chair</h3>
-          </div>
-          <div class="text-right">
-            <div class="font-display text-base text-ink">₫3.200.000</div>
-            <div class="text-[11px] text-warm">4.8 ★ (340)</div>
-          </div>
-        </div>
-      </article>
-
-      <!-- 8 -->
-      <article class="group glass liquid-edge rounded-3xl p-3 lift cursor-pointer">
-        <div class="relative rounded-2xl overflow-hidden bg-paper aspect-[4/5]">
-          <img src="https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=900&q=80" alt="" class="img-hover w-full h-full object-cover" />
-          <span class="absolute top-3 left-3 text-[10px] tracking-widest uppercase rounded-full px-2.5 py-1 font-semibold text-white bg-primary">New</span>
-          <button aria-label="Wishlist" class="absolute top-3 right-3 w-9 h-9 grid place-items-center rounded-full glass cursor-pointer hover:bg-white">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" class="w-4 h-4 text-ink"><path d="M12 21s-7-4.35-9.5-9A5.5 5.5 0 0 1 12 6a5.5 5.5 0 0 1 9.5 6c-2.5 4.65-9.5 9-9.5 9Z" stroke-linejoin="round"/></svg>
-          </button>
-          <div class="absolute inset-x-3 bottom-3 translate-y-3 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
-            <button class="w-full glass-dark text-white text-sm font-semibold rounded-xl h-11 cursor-pointer hover:bg-ink">Add to cart</button>
-          </div>
-        </div>
-        <div class="px-2 pt-3 pb-2 flex items-start justify-between gap-2">
-          <div>
-            <div class="text-[10px] tracking-widest uppercase text-warm">Bedroom · Nightstand</div>
-            <h3 class="font-display text-base text-ink leading-tight mt-1">Phú Quốc Walnut</h3>
-          </div>
-          <div class="text-right">
-            <div class="font-display text-base text-ink">₫7.400.000</div>
-            <div class="text-[11px] text-warm">4.9 ★ (61)</div>
-          </div>
-        </div>
-      </article>
-    </div>
-
-    <div class="mt-12 flex justify-center">
-      <a href="#" class="btn cursor-pointer inline-flex items-center gap-2 px-7 h-13 py-4 rounded-2xl glass text-ink font-semibold hover:bg-white">
-        View all 240 products
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4"><path d="M5 12h14M13 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== WHY VI ===================== -->
-<section id="why" class="relative py-20 md:py-28">
-  <div class="max-w-7xl mx-auto px-4 md:px-8">
-    <div class="grid lg:grid-cols-12 gap-10 items-center">
-      <div class="lg:col-span-5">
-        <div class="flex items-center gap-3 mb-3">
-          <span class="h-px w-8 bg-gold"></span>
-          <span class="text-[11px] tracking-[0.35em] uppercase text-warm font-semibold">Vì Sao Chọn VI · The VI Promise</span>
-        </div>
-        <h2 class="font-display text-3xl md:text-5xl text-ink text-balance">A quieter standard of luxury.</h2>
-        <p class="mt-5 text-ink/70 max-w-md text-pretty">
-          We believe a piece of furniture should outlast a lease, a renovation, even a generation.
-          Every order is built-to-order in our Bình Dương workshop by craftspeople who sign their work.
-        </p>
-        <a href="#newsletter" class="btn cursor-pointer mt-7 inline-flex items-center gap-2 text-ink font-semibold underline-grow">
-          Visit our atelier
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4"><path d="M5 12h14M13 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
-      </div>
-
-      <div class="lg:col-span-7 grid sm:grid-cols-2 gap-4 md:gap-5">
-        <!-- Feature 1 -->
-        <div class="glass liquid-edge rounded-3xl p-6 lift">
-          <div class="w-12 h-12 rounded-2xl glass-gold grid place-items-center mb-5">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" class="w-6 h-6 text-ink" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h11l3 4h4v6h-2"/><path d="M5 17h9"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg>
-          </div>
-          <h3 class="font-display text-xl text-ink">White-glove delivery</h3>
-          <p class="mt-2 text-sm text-ink/65 text-pretty">Free assembly, room-of-choice placement, and packaging removal across 63 provinces.</p>
-        </div>
-        <!-- Feature 2 -->
-        <div class="glass liquid-edge rounded-3xl p-6 lift">
-          <div class="w-12 h-12 rounded-2xl glass-gold grid place-items-center mb-5">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" class="w-6 h-6 text-ink" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 5v6c0 5 3.5 9 8 11 4.5-2 8-6 8-11V5l-8-3Z"/><path d="m9 12 2 2 4-4"/></svg>
-          </div>
-          <h3 class="font-display text-xl text-ink">10-year warranty</h3>
-          <p class="mt-2 text-sm text-ink/65 text-pretty">Frames, joinery, and structural hardware — covered for a full decade. No fine print.</p>
-        </div>
-        <!-- Feature 3 -->
-        <div class="glass liquid-edge rounded-3xl p-6 lift">
-          <div class="w-12 h-12 rounded-2xl glass-gold grid place-items-center mb-5">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" class="w-6 h-6 text-ink" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s-6-4-6-12a6 6 0 0 1 12 0c0 8-6 12-6 12Z"/><path d="M12 12v10"/><path d="M9 7c0-1 1-2 3-2s3 1 3 2"/></svg>
-          </div>
-          <h3 class="font-display text-xl text-ink">Sustainable hardwoods</h3>
-          <p class="mt-2 text-sm text-ink/65 text-pretty">FSC-certified acacia, oak, and Vietnamese walnut — replanted from our Đắk Lắk forest partners.</p>
-        </div>
-        <!-- Feature 4 -->
-        <div class="glass liquid-edge rounded-3xl p-6 lift">
-          <div class="w-12 h-12 rounded-2xl glass-gold grid place-items-center mb-5">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" class="w-6 h-6 text-ink" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5.4 0L4 11.6V20h8.4l5.3-5.3a4 4 0 0 0 0-5.4Z"/><path d="m12 8 4 4"/><path d="M3 21h7"/></svg>
-          </div>
-          <h3 class="font-display text-xl text-ink">Custom craftsmanship</h3>
-          <p class="mt-2 text-sm text-ink/65 text-pretty">Choose dimensions, fabrics, and finishes. Every order is signed by the maker.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== TESTIMONIALS ===================== -->
-<section class="relative py-20 md:py-28 bg-gradient-to-b from-white via-paper to-white overflow-hidden">
-  <div class="mesh">
-    <div class="blob w-[420px] h-[420px] bg-gold/20 top-0 left-1/4 animate-blob-slower"></div>
-    <div class="blob w-[420px] h-[420px] bg-secondary/20 bottom-0 right-1/4 animate-blob-slow"></div>
-  </div>
-
-  <div class="relative max-w-7xl mx-auto px-4 md:px-8">
-    <div class="text-center max-w-2xl mx-auto mb-14">
-      <div class="flex items-center justify-center gap-3 mb-3">
-        <span class="h-px w-8 bg-gold"></span>
-        <span class="text-[11px] tracking-[0.35em] uppercase text-warm font-semibold">Khách Hàng · Voices</span>
-        <span class="h-px w-8 bg-gold"></span>
-      </div>
-      <h2 class="font-display text-3xl md:text-5xl text-ink text-balance">Loved in homes from Hà Nội to Hồ Chí Minh.</h2>
-    </div>
-
-    <div class="grid md:grid-cols-3 gap-5 md:gap-6">
-      <!-- Testimonial 1 -->
-      <figure class="glass liquid-edge rounded-3xl p-7 lift">
-        <div class="flex items-center gap-1 text-gold">
-          <svg viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4"><path d="M12 2 14.9 8.6 22 9.3l-5.4 4.7L18.2 21 12 17.3 5.8 21l1.6-7L2 9.3l7.1-.7Z"/></svg>
-          <svg viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4"><path d="M12 2 14.9 8.6 22 9.3l-5.4 4.7L18.2 21 12 17.3 5.8 21l1.6-7L2 9.3l7.1-.7Z"/></svg>
-          <svg viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4"><path d="M12 2 14.9 8.6 22 9.3l-5.4 4.7L18.2 21 12 17.3 5.8 21l1.6-7L2 9.3l7.1-.7Z"/></svg>
-          <svg viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4"><path d="M12 2 14.9 8.6 22 9.3l-5.4 4.7L18.2 21 12 17.3 5.8 21l1.6-7L2 9.3l7.1-.7Z"/></svg>
-          <svg viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4"><path d="M12 2 14.9 8.6 22 9.3l-5.4 4.7L18.2 21 12 17.3 5.8 21l1.6-7L2 9.3l7.1-.7Z"/></svg>
-        </div>
-        <blockquote class="mt-5 font-display text-lg text-ink leading-snug text-balance">
-          “The Mekong Lounge transformed our living room — our family genuinely uses it every evening. Hai năm rồi vẫn như mới.”
-        </blockquote>
-        <figcaption class="mt-6 flex items-center gap-3">
-          <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=200&q=80" alt="" class="w-11 h-11 rounded-full object-cover ring-2 ring-white" />
-          <div>
-            <div class="font-semibold text-ink">Linh Phạm</div>
-            <div class="text-xs uppercase tracking-widest text-warm">Hà Nội · Tây Hồ</div>
-          </div>
-        </figcaption>
-      </figure>
-
-      <!-- Testimonial 2 -->
-      <figure class="glass liquid-edge rounded-3xl p-7 lift md:translate-y-6">
-        <div class="flex items-center gap-1 text-gold">
-          <svg viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4"><path d="M12 2 14.9 8.6 22 9.3l-5.4 4.7L18.2 21 12 17.3 5.8 21l1.6-7L2 9.3l7.1-.7Z"/></svg>
-          <svg viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4"><path d="M12 2 14.9 8.6 22 9.3l-5.4 4.7L18.2 21 12 17.3 5.8 21l1.6-7L2 9.3l7.1-.7Z"/></svg>
-          <svg viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4"><path d="M12 2 14.9 8.6 22 9.3l-5.4 4.7L18.2 21 12 17.3 5.8 21l1.6-7L2 9.3l7.1-.7Z"/></svg>
-          <svg viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4"><path d="M12 2 14.9 8.6 22 9.3l-5.4 4.7L18.2 21 12 17.3 5.8 21l1.6-7L2 9.3l7.1-.7Z"/></svg>
-          <svg viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4"><path d="M12 2 14.9 8.6 22 9.3l-5.4 4.7L18.2 21 12 17.3 5.8 21l1.6-7L2 9.3l7.1-.7Z"/></svg>
-        </div>
-        <blockquote class="mt-5 font-display text-lg text-ink leading-snug text-balance">
-          “The consultation team came to our apartment in District 2 with samples and a measuring kit. Felt like a true atelier — not a showroom.”
-        </blockquote>
-        <figcaption class="mt-6 flex items-center gap-3">
-          <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=200&q=80" alt="" class="w-11 h-11 rounded-full object-cover ring-2 ring-white" />
-          <div>
-            <div class="font-semibold text-ink">Minh Trần</div>
-            <div class="text-xs uppercase tracking-widest text-warm">TP. Hồ Chí Minh · Q.2</div>
-          </div>
-        </figcaption>
-      </figure>
-
-      <!-- Testimonial 3 -->
-      <figure class="glass liquid-edge rounded-3xl p-7 lift">
-        <div class="flex items-center gap-1 text-gold">
-          <svg viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4"><path d="M12 2 14.9 8.6 22 9.3l-5.4 4.7L18.2 21 12 17.3 5.8 21l1.6-7L2 9.3l7.1-.7Z"/></svg>
-          <svg viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4"><path d="M12 2 14.9 8.6 22 9.3l-5.4 4.7L18.2 21 12 17.3 5.8 21l1.6-7L2 9.3l7.1-.7Z"/></svg>
-          <svg viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4"><path d="M12 2 14.9 8.6 22 9.3l-5.4 4.7L18.2 21 12 17.3 5.8 21l1.6-7L2 9.3l7.1-.7Z"/></svg>
-          <svg viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4"><path d="M12 2 14.9 8.6 22 9.3l-5.4 4.7L18.2 21 12 17.3 5.8 21l1.6-7L2 9.3l7.1-.7Z"/></svg>
-          <svg viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4"><path d="M12 2 14.9 8.6 22 9.3l-5.4 4.7L18.2 21 12 17.3 5.8 21l1.6-7L2 9.3l7.1-.7Z"/></svg>
-        </div>
-        <blockquote class="mt-5 font-display text-lg text-ink leading-snug text-balance">
-          “We furnished our beach villa entirely with VI. The walnut grain, the joinery — these pieces look better with every season.”
-        </blockquote>
-        <figcaption class="mt-6 flex items-center gap-3">
-          <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=200&q=80" alt="" class="w-11 h-11 rounded-full object-cover ring-2 ring-white" />
-          <div>
-            <div class="font-semibold text-ink">Quỳnh Nguyễn</div>
-            <div class="text-xs uppercase tracking-widest text-warm">Đà Nẵng · Sơn Trà</div>
-          </div>
-        </figcaption>
-      </figure>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== NEWSLETTER / CTA ===================== -->
-<section id="newsletter" class="relative py-20 md:py-28">
-  <div class="max-w-6xl mx-auto px-4 md:px-8">
-    <div class="relative overflow-hidden rounded-[2.5rem] glass liquid-edge p-8 md:p-14 shadow-glass grain">
-      <div class="absolute inset-0 -z-10">
-        <img src="https://images.unsplash.com/photo-1567016526105-22da7c13161a?auto=format&fit=crop&w=2000&q=80" alt="" class="w-full h-full object-cover opacity-60" />
-        <div class="absolute inset-0 bg-gradient-to-r from-paper/90 via-paper/60 to-paper/30"></div>
-      </div>
-
-      <div class="grid md:grid-cols-2 gap-10 items-center relative">
-        <div>
-          <div class="flex items-center gap-3 mb-3">
-            <span class="h-px w-8 bg-gold"></span>
-            <span class="text-[11px] tracking-[0.35em] uppercase text-warm font-semibold">The VI Letter</span>
-          </div>
-          <h2 class="font-display text-3xl md:text-5xl text-ink text-balance leading-[1.05]">
-            Be first to see new collections — and ₫1.000.000 off your first order.
-          </h2>
-          <p class="mt-4 text-ink/70 max-w-md text-pretty">
-            Quiet, monthly. Studio notes, behind-the-scenes from our atelier, and members-only previews.
-          </p>
-        </div>
-
-        <form class="md:justify-self-end w-full max-w-md" onsubmit="event.preventDefault();">
-          <div class="glass rounded-2xl p-2 flex items-center gap-2">
-            <input type="email" required placeholder="you@example.com"
-              class="flex-1 bg-transparent px-4 py-3 text-ink placeholder:text-ink/40 focus:outline-none" />
-            <button class="btn cursor-pointer h-12 px-5 rounded-xl bg-cta text-white font-semibold whitespace-nowrap hover:bg-orange-600">
-              Subscribe
-            </button>
-          </div>
-          <div class="mt-4 flex items-center gap-2 text-xs text-ink/55">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" class="w-4 h-4"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-            We respect your inbox. Unsubscribe in one click.
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== FOOTER ===================== -->
-<footer class="relative bg-ink text-white pt-20 pb-10 mt-10 overflow-hidden">
-  <div class="absolute inset-0 opacity-30 pointer-events-none">
-    <div class="blob w-[500px] h-[500px] bg-primary/40 -top-32 -left-20"></div>
-    <div class="blob w-[500px] h-[500px] bg-gold/30 -bottom-32 -right-20"></div>
-  </div>
-
-  <div class="relative max-w-7xl mx-auto px-4 md:px-8">
-    <div class="grid md:grid-cols-12 gap-10 pb-14 border-b border-white/10">
-      <div class="md:col-span-4">
-        <div class="flex items-center gap-3">
-          <span class="grid place-items-center w-11 h-11 rounded-xl bg-white text-ink font-display text-lg">VI</span>
-          <div>
-            <div class="font-display tracking-widest">VI FURNITURE</div>
-            <div class="text-[10px] tracking-[0.3em] uppercase text-white/50">Nội Thất Cao Cấp</div>
-          </div>
-        </div>
-        <p class="mt-5 text-white/65 max-w-xs text-pretty">
-          A Vietnamese atelier crafting heirloom furniture from sustainable hardwoods.
-          Workshop in Bình Dương. Showrooms in Hà Nội, TP.HCM, and Đà Nẵng.
-        </p>
-
-        <div class="mt-6 flex items-center gap-2">
-          <a aria-label="Instagram" class="cursor-pointer w-10 h-10 grid place-items-center rounded-xl glass-dark hover:bg-white/15">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" class="w-4 h-4"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.8" fill="currentColor"/></svg>
-          </a>
-          <a aria-label="Facebook" class="cursor-pointer w-10 h-10 grid place-items-center rounded-xl glass-dark hover:bg-white/15">
-            <svg viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4"><path d="M13 22v-8h3l1-4h-4V7.5C13 6.6 13.4 6 14.6 6H17V2.2C16.6 2.1 15.4 2 14.2 2 11.7 2 10 3.5 10 6.7V10H7v4h3v8h3Z"/></svg>
-          </a>
-          <a aria-label="Pinterest" class="cursor-pointer w-10 h-10 grid place-items-center rounded-xl glass-dark hover:bg-white/15">
-            <svg viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4"><path d="M12 2a10 10 0 0 0-3.6 19.3c-.1-.8-.2-2 0-2.8l1.3-5.4s-.3-.7-.3-1.7c0-1.6.9-2.8 2.1-2.8 1 0 1.5.7 1.5 1.6 0 1-.6 2.4-.9 3.8-.3 1.1.6 2 1.7 2 2 0 3.5-2.1 3.5-5.1 0-2.7-1.9-4.6-4.7-4.6-3.2 0-5 2.4-5 4.9 0 1 .4 2 .9 2.6.1.1.1.2.1.3l-.3 1.2c-.1.2-.2.3-.4.2-1.4-.7-2.3-2.7-2.3-4.4 0-3.6 2.6-6.9 7.5-6.9 3.9 0 7 2.8 7 6.6 0 3.9-2.5 7.1-5.9 7.1-1.2 0-2.3-.6-2.6-1.3l-.7 2.7c-.3 1-1 2.3-1.5 3.1A10 10 0 1 0 12 2Z"/></svg>
-          </a>
-          <a aria-label="TikTok" class="cursor-pointer w-10 h-10 grid place-items-center rounded-xl glass-dark hover:bg-white/15">
-            <svg viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4"><path d="M16 3v3.4a5.6 5.6 0 0 0 4 1.6V11a8.7 8.7 0 0 1-4-1v6.4A5.6 5.6 0 1 1 10.4 11h.6v3.5a2.1 2.1 0 1 0 2 2.1V3h3Z"/></svg>
-          </a>
-        </div>
-      </div>
-
-      <div class="md:col-span-2">
-        <h4 class="font-display text-sm tracking-[0.25em] uppercase text-white/90">Shop</h4>
-        <ul class="mt-5 space-y-3 text-sm text-white/65">
-          <li><a class="cursor-pointer hover:text-white" href="#">Sofas</a></li>
-          <li><a class="cursor-pointer hover:text-white" href="#">Dining</a></li>
-          <li><a class="cursor-pointer hover:text-white" href="#">Bedroom</a></li>
-          <li><a class="cursor-pointer hover:text-white" href="#">Lighting</a></li>
-          <li><a class="cursor-pointer hover:text-white" href="#">Decor</a></li>
-        </ul>
-      </div>
-
-      <div class="md:col-span-2">
-        <h4 class="font-display text-sm tracking-[0.25em] uppercase text-white/90">Atelier</h4>
-        <ul class="mt-5 space-y-3 text-sm text-white/65">
-          <li><a class="cursor-pointer hover:text-white" href="#">Our story</a></li>
-          <li><a class="cursor-pointer hover:text-white" href="#">Craftsmanship</a></li>
-          <li><a class="cursor-pointer hover:text-white" href="#">Sustainability</a></li>
-          <li><a class="cursor-pointer hover:text-white" href="#">Showrooms</a></li>
-          <li><a class="cursor-pointer hover:text-white" href="#">Trade program</a></li>
-        </ul>
-      </div>
-
-      <div class="md:col-span-2">
-        <h4 class="font-display text-sm tracking-[0.25em] uppercase text-white/90">Care</h4>
-        <ul class="mt-5 space-y-3 text-sm text-white/65">
-          <li><a class="cursor-pointer hover:text-white" href="#">Delivery</a></li>
-          <li><a class="cursor-pointer hover:text-white" href="#">Returns</a></li>
-          <li><a class="cursor-pointer hover:text-white" href="#">Warranty</a></li>
-          <li><a class="cursor-pointer hover:text-white" href="#">Contact</a></li>
-          <li><a class="cursor-pointer hover:text-white" href="#">FAQs</a></li>
-        </ul>
-      </div>
-
-      <div class="md:col-span-2">
-        <h4 class="font-display text-sm tracking-[0.25em] uppercase text-white/90">Visit</h4>
-        <ul class="mt-5 space-y-3 text-sm text-white/65">
-          <li>72 Lý Tự Trọng<br/>Quận 1, TP.HCM</li>
-          <li>18 Tràng Tiền<br/>Hoàn Kiếm, Hà Nội</li>
-          <li>+84 28 3823 0000</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="pt-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-      <div class="text-xs text-white/45">© 2026 VI Furniture Co. Ltd. · All rights reserved · GPKD 0312345678</div>
-
-      <div class="flex items-center gap-3">
-        <span class="text-[11px] tracking-widest uppercase text-white/45 mr-1">We accept</span>
-        <span class="px-3 py-1.5 rounded-md bg-white/10 text-[11px] font-semibold tracking-widest">VISA</span>
-        <span class="px-3 py-1.5 rounded-md bg-white/10 text-[11px] font-semibold tracking-widest">MC</span>
-        <span class="px-3 py-1.5 rounded-md bg-white/10 text-[11px] font-semibold tracking-widest">MOMO</span>
-        <span class="px-3 py-1.5 rounded-md bg-white/10 text-[11px] font-semibold tracking-widest">VNPAY</span>
-        <span class="px-3 py-1.5 rounded-md bg-white/10 text-[11px] font-semibold tracking-widest">ZALO</span>
-      </div>
-
-      <div class="text-xs text-white/45 flex items-center gap-4">
-        <a class="hover:text-white cursor-pointer" href="#">Privacy</a>
-        <a class="hover:text-white cursor-pointer" href="#">Terms</a>
-        <a class="hover:text-white cursor-pointer" href="#">Cookies</a>
-      </div>
-    </div>
-  </div>
-</footer>
+  </footer>
 
 </body>
 </html>

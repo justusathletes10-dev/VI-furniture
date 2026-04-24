@@ -1,32 +1,32 @@
 import type { Metadata } from "next";
-import { Cinzel, Josefin_Sans } from "next/font/google";
+import { Inter, Inter_Tight } from "next/font/google";
 import "./globals.css";
 
-const cinzel = Cinzel({
+const interBody = Inter({
   subsets: ["latin"],
-  variable: "--font-cinzel",
+  variable: "--font-body",
   display: "swap",
-  weight: ["400", "500", "600", "700"],
+  weight: ["300", "400", "500"],
 });
 
-const josefin = Josefin_Sans({
+const interDisplay = Inter_Tight({
   subsets: ["latin"],
-  variable: "--font-josefin",
+  variable: "--font-display",
   display: "swap",
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["400", "500"],
 });
 
 export const metadata: Metadata = {
-  title: "VI Furniture — Vietnamese Luxury Furniture",
+  title: "VI — Objects for a lifetime",
   description:
-    "Handcrafted Vietnamese luxury furniture. Sofas, dining, beds, lighting and decor — designed in Hanoi, made for a lifetime.",
+    "VI is an atelier of handmade objects from Bình Dương — seating, tables, lighting and quiet vessels, designed for the rooms you keep.",
   keywords: [
-    "Vietnamese furniture",
-    "luxury furniture",
-    "VI Furniture",
-    "Hanoi",
-    "handcrafted",
-    "interior design",
+    "VI",
+    "Vietnamese design",
+    "Bình Dương",
+    "atelier",
+    "handmade furniture",
+    "editorial design",
   ],
 };
 
@@ -36,8 +36,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${cinzel.variable} ${josefin.variable}`}>
-      <body className="min-h-screen text-[var(--color-foreground)]">
+    <html lang="en" className={`${interBody.variable} ${interDisplay.variable}`}>
+      <body className="min-h-screen bg-[#F5F2EC] text-[#1A1A1A] font-body antialiased">
         {children}
       </body>
     </html>

@@ -1,71 +1,65 @@
-import { Hammer, Truck, Leaf, ShieldCheck } from "lucide-react";
-import { GlassCard } from "@/components/ui/glass-card";
+import { Hammer, Leaf, Truck, ShieldCheck } from "lucide-react";
 
 const features = [
   {
     icon: Hammer,
-    title: "Master Craftsmanship",
-    vietnamese: "Tay nghề bậc thầy",
-    desc: "Hand-built by third-generation Vietnamese artisans using time-honored joinery techniques.",
+    title: "Made by hand.",
+    desc: "Joinery cut, sanded and finished by third-generation makers in Bình Dương.",
   },
   {
     icon: Leaf,
-    title: "Sustainable Materials",
-    vietnamese: "Vật liệu bền vững",
-    desc: "FSC-certified hardwoods, low-VOC finishes, and locally sourced natural fibers.",
+    title: "Slow materials.",
+    desc: "FSC-certified hardwoods, low-VOC finishes, locally pressed cane and clay.",
   },
   {
     icon: Truck,
-    title: "White-Glove Delivery",
-    vietnamese: "Giao hàng tận nhà",
-    desc: "Free nationwide delivery, in-room placement, and full assembly by trained specialists.",
+    title: "Quietly delivered.",
+    desc: "White-glove placement and assembly — no boxes, no hurry, no fuss.",
   },
   {
     icon: ShieldCheck,
-    title: "Lifetime Warranty",
-    vietnamese: "Bảo hành trọn đời",
-    desc: "Every frame backed by a lifetime structural warranty. We stand behind every piece, forever.",
+    title: "Kept for life.",
+    desc: "Lifetime structural guarantee. We repair what we make, for as long as you have it.",
   },
 ];
 
 export function WhyVi() {
   return (
-    <section id="why" className="relative px-4 pt-24">
+    <section
+      id="why"
+      className="relative bg-[#F5F2EC] px-6 py-24 md:py-32 border-t border-[#E4DFD6]"
+    >
       <div className="mx-auto max-w-7xl">
-        <div className="text-center">
-          <p className="text-xs font-semibold uppercase tracking-widest text-[var(--color-gold)]">
-            Tại Sao Chọn VI
-          </p>
-          <h2 className="mt-2 font-display text-4xl font-semibold tracking-tight sm:text-5xl">
-            Why VI Furniture
+        <div className="max-w-2xl">
+          <p className="eyebrow">The Studio</p>
+          <h2 className="mt-3 font-display text-[clamp(1.75rem,3vw,2.75rem)] font-medium leading-[1.05] tracking-tight">
+            An object you live with for a lifetime.
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-sm text-[var(--color-foreground)]/60 sm:text-base">
-            Four pillars that have defined our brand since 2001 — and shaped
-            over 120,000 Vietnamese homes.
-          </p>
         </div>
 
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {features.map((f) => (
-            <GlassCard
+        <div className="mt-16 grid grid-cols-1 md:grid-cols-4 md:divide-x md:divide-[#E4DFD6]">
+          {features.map((f, idx) => (
+            <div
               key={f.title}
-              variant="strong"
-              interactive
-              className="p-6"
+              className={`py-8 md:py-0 md:px-8 ${
+                idx === 0 ? "md:pl-0" : ""
+              } ${
+                idx === features.length - 1 ? "md:pr-0" : ""
+              } ${
+                idx > 0 ? "border-t border-[#E4DFD6] md:border-t-0" : ""
+              }`}
             >
-              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-[var(--color-primary)] to-[var(--color-secondary)] text-white shadow-lg shadow-blue-500/30">
-                <f.icon className="h-6 w-6" />
-              </div>
-              <h3 className="mt-5 font-display text-lg font-semibold">
+              <f.icon
+                strokeWidth={1.5}
+                className="h-5 w-5 text-[#1A1A1A]"
+              />
+              <h3 className="mt-5 font-display text-[16px] font-medium leading-snug tracking-tight text-[#1A1A1A]">
                 {f.title}
               </h3>
-              <p className="mt-1 text-xs italic text-[var(--color-gold)]">
-                {f.vietnamese}
-              </p>
-              <p className="mt-3 text-sm leading-relaxed text-[var(--color-foreground)]/70">
+              <p className="mt-2 text-[13px] leading-relaxed text-[#6B6660]">
                 {f.desc}
               </p>
-            </GlassCard>
+            </div>
           ))}
         </div>
       </div>

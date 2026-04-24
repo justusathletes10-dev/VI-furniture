@@ -1,46 +1,36 @@
-import { Mail, ArrowRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { ArrowRight } from "lucide-react";
 
 export function Newsletter() {
   return (
-    <section className="relative px-4 pt-24">
-      <div className="mx-auto max-w-7xl">
-        <div className="glass-strong relative overflow-hidden rounded-[2rem] px-6 py-12 sm:px-12 sm:py-16">
-          {/* glow accents */}
-          <div className="pointer-events-none absolute -left-20 -top-20 h-72 w-72 rounded-full bg-[var(--color-primary)]/20 blur-3xl" />
-          <div className="pointer-events-none absolute -bottom-24 -right-16 h-72 w-72 rounded-full bg-[var(--color-cta)]/20 blur-3xl" />
+    <section className="relative bg-[#F5F2EC] px-6 py-24 md:py-32 border-t border-[#E4DFD6]">
+      <div className="mx-auto max-w-md text-center">
+        <p className="eyebrow">Atelier Dispatch</p>
+        <h2 className="mt-3 font-display text-[clamp(1.5rem,2.4vw,2rem)] font-medium leading-[1.1] tracking-tight text-[#1A1A1A]">
+          Subscribe to the Atelier Dispatch.
+        </h2>
+        <p className="mt-3 text-[13px] leading-relaxed text-[#6B6660]">
+          A quiet letter, three or four times a year — new pieces, makers we
+          admire, and notes from the workshop.
+        </p>
 
-          <div className="relative grid gap-8 lg:grid-cols-2 lg:items-center">
-            <div>
-              <div className="inline-flex items-center gap-2 rounded-full bg-white/60 px-3 py-1 text-[10px] font-semibold uppercase tracking-widest text-[var(--color-primary)]">
-                <Mail className="h-3.5 w-3.5" />
-                Newsletter · Bản Tin
-              </div>
-              <h2 className="mt-4 font-display text-3xl font-semibold tracking-tight sm:text-4xl">
-                Join the VI inner circle.
-              </h2>
-              <p className="mt-3 max-w-md text-sm text-[var(--color-foreground)]/70 sm:text-base">
-                First access to new collections, private artisan stories, and
-                subscriber-only offers — straight from Hanoi to your inbox.
-              </p>
-            </div>
-
-            <form className="flex flex-col gap-3 sm:flex-row">
-              <label className="relative flex-1">
-                <span className="sr-only">Email</span>
-                <input
-                  type="email"
-                  placeholder="your@email.com"
-                  className="h-13 w-full rounded-full border border-white/60 bg-white/70 px-6 text-sm placeholder:text-[var(--color-foreground)]/40 focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]/50 backdrop-blur fluid-transition"
-                />
-              </label>
-              <Button variant="cta" size="lg" type="submit">
-                Subscribe
-                <ArrowRight className="h-4 w-4" />
-              </Button>
-            </form>
-          </div>
-        </div>
+        <form className="mt-10 flex items-center gap-4 border-b border-[#1A1A1A] pb-2">
+          <label className="flex-1 text-left">
+            <span className="sr-only">Email</span>
+            <input
+              type="email"
+              required
+              placeholder="your@email"
+              className="w-full bg-transparent text-[13px] text-[#1A1A1A] placeholder:text-[#6B6660] focus:outline-none"
+            />
+          </label>
+          <button
+            type="submit"
+            aria-label="Subscribe"
+            className="text-[#1A1A1A] cursor-pointer hover:opacity-70"
+          >
+            <ArrowRight strokeWidth={1.5} className="h-[18px] w-[18px]" />
+          </button>
+        </form>
       </div>
     </section>
   );

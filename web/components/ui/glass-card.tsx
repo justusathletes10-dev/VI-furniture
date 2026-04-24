@@ -1,35 +1,18 @@
 import * as React from "react";
 import { cn } from "@/lib/utils";
 
-type Variant = "default" | "strong" | "dark";
-
+// Editorial restyle: this is now a no-op wrapper kept only for back-compat
+// with any callers that still import it. No glass, no blur, no shadows.
 export interface GlassCardProps extends React.HTMLAttributes<HTMLDivElement> {
-  variant?: Variant;
+  variant?: "default" | "strong" | "dark";
   interactive?: boolean;
 }
 
-const variantClass: Record<Variant, string> = {
-  default: "glass",
-  strong: "glass-strong",
-  dark: "glass-dark",
-};
-
 export function GlassCard({
   className,
-  variant = "default",
-  interactive = false,
+  variant: _variant,
+  interactive: _interactive,
   ...props
 }: GlassCardProps) {
-  return (
-    <div
-      className={cn(
-        "rounded-3xl fluid-transition",
-        variantClass[variant],
-        interactive &&
-          "hover:-translate-y-1 hover:shadow-2xl hover:shadow-blue-500/10 cursor-pointer",
-        className,
-      )}
-      {...props}
-    />
-  );
+  return <div className={cn(className)} {...props} />;
 }

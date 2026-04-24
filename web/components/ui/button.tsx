@@ -1,43 +1,48 @@
 import * as React from "react";
 import { cn } from "@/lib/utils";
 
-type Variant = "primary" | "cta" | "ghost" | "glass" | "outline";
+// Map legacy variant names to current ones for backwards compatibility.
+type Variant = "text" | "outline";
+type LegacyVariant = "primary" | "cta" | "ghost" | "glass";
+type AnyVariant = Variant | LegacyVariant;
 type Size = "sm" | "md" | "lg";
 
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: Variant;
+  variant?: AnyVariant;
   size?: Size;
   asChild?: boolean;
 }
 
-const variantStyles: Record<Variant, string> = {
-  primary:
-    "bg-[var(--color-primary)] text-white hover:bg-[var(--color-secondary)] shadow-lg shadow-blue-500/20",
-  cta: "bg-[var(--color-cta)] text-white hover:brightness-110 shadow-lg shadow-orange-500/30",
-  ghost:
-    "bg-transparent text-[var(--color-foreground)] hover:bg-white/40 backdrop-blur",
-  glass:
-    "glass text-[var(--color-foreground)] hover:bg-white/70",
-  outline:
-    "border border-white/60 bg-white/30 text-[var(--color-foreground)] backdrop-blur hover:bg-white/50",
+const sizeStyles: Record<Size, string> = {
+  sm: "h-9 px-4 text-[11px]",
+  md: "h-11 px-6 text-[11px]",
+  lg: "h-12 px-8 text-[11px]",
 };
 
-const sizeStyles: Record<Size, string> = {
-  sm: "h-9 px-4 text-sm",
-  md: "h-11 px-6 text-sm",
-  lg: "h-13 px-8 text-base",
+function resolveVariant(v: AnyVariant): Variant {
+  // Legacy aliases collapse to outline (the heaviest editorial CTA we offer).
+  if (v === "text" || v === "ghost") return "text";
+  return "outline";
+}
+
+const variantStyles: Record<Variant, string> = {
+  text:
+    "bg-transparent px-0 h-auto text-[#1A1A1A] uppercase tracking-[0.18em] underline underline-offset-4 hover:opacity-70",
+  outline:
+    "border border-[#1A1A1A] bg-transparent text-[#1A1A1A] uppercase tracking-[0.18em] hover:bg-[#1A1A1A] hover:text-[#F5F2EC]",
 };
 
 export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant = "primary", size = "md", ...props }, ref) => {
+  ({ className, variant = "outline", size = "md", ...props }, ref) => {
+    const v = resolveVariant(variant);
     return (
       <button
         ref={ref}
         className={cn(
-          "inline-flex items-center justify-center gap-2 rounded-full font-medium tracking-wide fluid-transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary)]/50 disabled:opacity-50 disabled:pointer-events-none",
-          variantStyles[variant],
-          sizeStyles[size],
+          "inline-flex items-center justify-center gap-2 cursor-pointer font-medium transition-opacity duration-200 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#1A1A1A] disabled:opacity-50 disabled:pointer-events-none",
+          v === "outline" && sizeStyles[size],
+          variantStyles[v],
           className,
         )}
         {...props}

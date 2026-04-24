@@ -1,58 +1,110 @@
-import Image from "next/image";
-import { Star, Quote } from "lucide-react";
-import { testimonials } from "@/lib/data";
-import { GlassCard } from "@/components/ui/glass-card";
+"use client";
+
+import { motion } from "motion/react";
+import {
+  TestimonialsColumn,
+  type Testimonial,
+} from "@/components/ui/testimonials-columns-1";
+
+const testimonials: Testimonial[] = [
+  {
+    text: "The teak credenza arrived two weeks early — the joinery is impeccable, and the white-glove team installed it in under an hour.",
+    image: "https://randomuser.me/api/portraits/women/12.jpg",
+    name: "Linh Nguyễn",
+    role: "Homeowner — Hà Nội",
+  },
+  {
+    text: "VI's atelier worked with our architect on a custom dining table for sixteen. The result is the centrepiece of the home.",
+    image: "https://randomuser.me/api/portraits/men/22.jpg",
+    name: "Minh Trần",
+    role: "Architect — Sài Gòn",
+  },
+  {
+    text: "After ten years our linen sofa still looks like the day it arrived. The reupholster service is exceptional.",
+    image: "https://randomuser.me/api/portraits/women/33.jpg",
+    name: "Hương Phạm",
+    role: "Interior Designer — Đà Nẵng",
+  },
+  {
+    text: "Slow furniture, made properly. The hand-spun rattan lounge has more personality than anything I've imported from Europe.",
+    image: "https://randomuser.me/api/portraits/men/44.jpg",
+    name: "Đức Lê",
+    role: "Collector — Hà Nội",
+  },
+  {
+    text: "Working with the Bình Dương atelier felt like a real collaboration — they understood the brief from the first sketch.",
+    image: "https://randomuser.me/api/portraits/women/55.jpg",
+    name: "Mai Vũ",
+    role: "Stylist — Sài Gòn",
+  },
+  {
+    text: "Quietly the best furniture studio in Vietnam. Restrained, considered, durable — exactly what a home needs.",
+    image: "https://randomuser.me/api/portraits/men/66.jpg",
+    name: "Tuấn Hoàng",
+    role: "Editor — Đà Nẵng",
+  },
+  {
+    text: "The Atelier Edition lighting series is extraordinary. Slumped glass and brass — every fixture feels like a small sculpture.",
+    image: "https://randomuser.me/api/portraits/women/77.jpg",
+    name: "Quỳnh Đặng",
+    role: "Gallerist — Sài Gòn",
+  },
+  {
+    text: "Ten-year warranty isn't marketing — they actually honour it. Replaced a piece of hardware on a five-year-old chair, no questions.",
+    image: "https://randomuser.me/api/portraits/men/88.jpg",
+    name: "Khánh Phan",
+    role: "Homeowner — Hà Nội",
+  },
+  {
+    text: "Sustainable wood, ethical sourcing, and craft you can feel. We furnished the entire boutique with VI pieces.",
+    image: "https://randomuser.me/api/portraits/women/99.jpg",
+    name: "Thanh Bùi",
+    role: "Hotelier — Hội An",
+  },
+];
+
+const firstColumn = testimonials.slice(0, 3);
+const secondColumn = testimonials.slice(3, 6);
+const thirdColumn = testimonials.slice(6, 9);
 
 export function Testimonials() {
   return (
-    <section id="testimonials" className="relative px-4 pt-24">
-      <div className="mx-auto max-w-7xl">
-        <div className="text-center">
-          <p className="text-xs font-semibold uppercase tracking-widest text-[var(--color-gold)]">
-            Khách Hàng Nói Gì
-          </p>
-          <h2 className="mt-2 font-display text-4xl font-semibold tracking-tight sm:text-5xl">
-            Loved Across Vietnam
+    <section id="testimonials" className="bg-background my-20 relative">
+      <div className="container z-10 mx-auto px-4">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+          viewport={{ once: true }}
+          className="flex flex-col items-center justify-center max-w-[540px] mx-auto"
+        >
+          <div className="flex justify-center">
+            <div className="border py-1 px-4 rounded-lg text-xs uppercase tracking-widest">
+              Testimonials
+            </div>
+          </div>
+
+          <h2 className="font-display text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-medium tracking-tight mt-5 text-center">
+            From homes across Vietnam.
           </h2>
-        </div>
+          <p className="text-center mt-5 opacity-75">
+            What collectors, designers, and homeowners say about living with a
+            VI piece.
+          </p>
+        </motion.div>
 
-        <div className="mt-12 grid gap-6 lg:grid-cols-3">
-          {testimonials.map((t) => (
-            <GlassCard key={t.id} variant="strong" className="relative p-7">
-              <Quote className="absolute right-6 top-6 h-10 w-10 text-[var(--color-primary)]/10" />
-
-              <div className="flex items-center gap-1">
-                {Array.from({ length: t.rating }).map((_, i) => (
-                  <Star
-                    key={i}
-                    className="h-4 w-4 fill-[var(--color-gold)] text-[var(--color-gold)]"
-                  />
-                ))}
-              </div>
-
-              <p className="mt-4 text-[15px] leading-relaxed text-[var(--color-foreground)]/80">
-                &ldquo;{t.quote}&rdquo;
-              </p>
-
-              <div className="mt-6 flex items-center gap-3 border-t border-white/40 pt-5">
-                <div className="relative h-12 w-12 overflow-hidden rounded-full ring-2 ring-white/70">
-                  <Image
-                    src={t.avatar}
-                    alt={t.name}
-                    fill
-                    sizes="48px"
-                    className="object-cover"
-                  />
-                </div>
-                <div>
-                  <p className="font-display text-sm font-semibold">{t.name}</p>
-                  <p className="text-xs text-[var(--color-foreground)]/60">
-                    {t.role}
-                  </p>
-                </div>
-              </div>
-            </GlassCard>
-          ))}
+        <div className="flex justify-center gap-6 mt-10 [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)] max-h-[740px] overflow-hidden">
+          <TestimonialsColumn testimonials={firstColumn} duration={15} />
+          <TestimonialsColumn
+            testimonials={secondColumn}
+            className="hidden md:block"
+            duration={19}
+          />
+          <TestimonialsColumn
+            testimonials={thirdColumn}
+            className="hidden lg:block"
+            duration={17}
+          />
         </div>
       </div>
     </section>

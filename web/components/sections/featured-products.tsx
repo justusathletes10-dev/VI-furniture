@@ -1,87 +1,90 @@
 import Image from "next/image";
-import { Heart, ShoppingBag } from "lucide-react";
+import Link from "next/link";
 import { featuredProducts } from "@/lib/data";
 import { formatVND } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
+
+const badges: Record<string, string> = {
+  "Best Seller": "Atelier Edition",
+  New: "New",
+  Artisan: "Handmade",
+};
 
 export function FeaturedProducts() {
+  // Use first 4 as hero pieces
+  const hero = featuredProducts.slice(0, 4);
+
   return (
-    <section id="featured" className="relative px-4 pt-24">
+    <section
+      id="featured"
+      className="relative bg-[#F5F2EC] px-6 py-24 md:py-32 border-t border-[#E4DFD6]"
+    >
       <div className="mx-auto max-w-7xl">
-        <div className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end">
+        <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-widest text-[var(--color-gold)]">
-              Sản Phẩm Nổi Bật
-            </p>
-            <h2 className="mt-2 font-display text-4xl font-semibold tracking-tight sm:text-5xl">
-              Featured Pieces
+            <p className="eyebrow">Currently in the Atelier</p>
+            <h2 className="mt-3 font-display text-[clamp(1.75rem,3vw,2.75rem)] font-medium leading-[1.05] tracking-tight max-w-xl">
+              Four pieces we are making this season.
             </h2>
           </div>
-          <p className="max-w-md text-sm text-[var(--color-foreground)]/60">
-            Curated selections from our master artisans — each piece signed,
-            numbered, and built to outlast trends.
+          <p className="max-w-sm text-[13px] leading-relaxed text-[#6B6660]">
+            Each object is signed, numbered, and made to order in our
+            Bình Dương atelier.
           </p>
         </div>
 
-        <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {featuredProducts.map((p) => (
-            <article
-              key={p.id}
-              className="group glass overflow-hidden rounded-3xl fluid-transition hover:-translate-y-1 hover:shadow-2xl hover:shadow-blue-500/10"
-            >
-              <div className="relative aspect-square overflow-hidden">
-                <Image
-                  src={p.image}
-                  alt={p.name}
-                  fill
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                  className="object-cover fluid-transition-slow group-hover:scale-110"
-                />
-                {p.badge && (
-                  <span className="glass-strong absolute left-3 top-3 rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-[var(--color-primary)]">
-                    {p.badge}
-                  </span>
-                )}
-                <button
-                  aria-label="Add to wishlist"
-                  className="glass-strong absolute right-3 top-3 flex h-9 w-9 items-center justify-center rounded-full fluid-transition hover:bg-white"
+        <div className="mt-16 grid grid-cols-1 gap-x-8 gap-y-16 md:grid-cols-12">
+          {hero.map((p, idx) => {
+            // Asymmetric: item 0 spans 7, item 1 spans 5, item 2 spans 5, item 3 spans 7
+            const span =
+              idx === 0 ? "md:col-span-7" :
+              idx === 1 ? "md:col-span-5" :
+              idx === 2 ? "md:col-span-5" :
+              "md:col-span-7";
+
+            const tag = p.badge ? badges[p.badge] ?? p.badge : null;
+
+            return (
+              <article key={p.id} className={`group ${span}`}>
+                <Link
+                  href="#"
+                  className="block cursor-pointer"
                 >
-                  <Heart className="h-4 w-4" />
-                </button>
-              </div>
-
-              <div className="p-4">
-                <p className="text-[10px] uppercase tracking-widest text-[var(--color-foreground)]/50">
-                  {p.category}
-                </p>
-                <h3 className="mt-1 font-display text-base font-semibold leading-tight">
-                  {p.name}
-                </h3>
-                {p.vietnameseName && (
-                  <p className="text-xs italic text-[var(--color-foreground)]/50">
-                    {p.vietnameseName}
-                  </p>
-                )}
-
-                <div className="mt-3 flex items-end justify-between gap-2">
-                  <div>
-                    <div className="font-display text-lg font-semibold text-[var(--color-primary)]">
-                      {formatVND(p.price)}
-                    </div>
-                    {p.originalPrice && (
-                      <div className="text-xs text-[var(--color-foreground)]/40 line-through">
-                        {formatVND(p.originalPrice)}
-                      </div>
-                    )}
+                  <div className="relative aspect-[4/5] overflow-hidden bg-white">
+                    <Image
+                      src={p.image}
+                      alt={p.name}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                      className="object-cover"
+                    />
                   </div>
-                  <Button variant="cta" size="sm" aria-label="Add to cart">
-                    <ShoppingBag className="h-4 w-4" />
-                    Add
-                  </Button>
-                </div>
-              </div>
-            </article>
-          ))}
+
+                  <div className="mt-5 border-b border-[#E4DFD6] pb-5">
+                    {tag && <p className="eyebrow">{tag}</p>}
+                    <div className="mt-2 flex items-baseline justify-between gap-6">
+                      <div>
+                        <h3 className="font-display text-[18px] font-medium leading-tight tracking-tight text-[#1A1A1A] group-hover:underline underline-offset-4">
+                          {p.name}
+                        </h3>
+                        <p className="mt-1 text-[12px] text-[#6B6660]">
+                          {p.vietnameseName} · {p.category}
+                        </p>
+                      </div>
+                      <p className="font-display text-[14px] text-[#1A1A1A] whitespace-nowrap">
+                        {formatVND(p.price)}
+                      </p>
+                    </div>
+
+                    <div className="mt-3 opacity-0 transition-opacity duration-200 group-hover:opacity-100">
+                      <span className="text-[11px] uppercase tracking-[0.18em] text-[#1A1A1A] underline underline-offset-4">
+                        View
+                      </span>
+                    </div>
+                  </div>
+                </Link>
+              </article>
+            );
+          })}
         </div>
       </div>
     </section>

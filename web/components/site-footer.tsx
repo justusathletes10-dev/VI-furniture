@@ -1,67 +1,62 @@
 import Link from "next/link";
-import { Facebook, Instagram, Youtube, MapPin, Phone, Mail } from "lucide-react";
 
-const cols = [
+const columns = [
+  {
+    title: "Visit",
+    links: [
+      "Hà Nội — 12 Hàng Bài",
+      "Sài Gòn — 44 Lý Tự Trọng",
+      "Bình Dương — Atelier",
+      "Book an appointment",
+    ],
+  },
   {
     title: "Shop",
-    links: ["Sofas", "Dining", "Beds", "Lighting", "Decor", "Office"],
+    links: ["Seating", "Tables", "Lighting", "Storage", "Objects"],
   },
   {
-    title: "Company",
-    links: ["About VI", "Craftsmanship", "Sustainability", "Showrooms", "Press"],
+    title: "Studio",
+    links: ["About", "Makers", "Materials", "Journal", "Press"],
   },
   {
-    title: "Support",
-    links: ["Contact", "Shipping", "Returns", "Warranty", "FAQ"],
+    title: "Connect",
+    links: ["Newsletter", "Trade program", "Instagram", "Contact"],
   },
 ];
 
 export function SiteFooter() {
   return (
-    <footer id="footer" className="relative mt-24 px-4 pb-8">
-      <div className="glass-dark mx-auto max-w-7xl rounded-[2rem] px-6 py-12 sm:px-10 sm:py-16">
-        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-5">
+    <footer
+      id="footer"
+      className="mt-24 border-t border-[#E4DFD6] bg-[#F5F2EC]"
+    >
+      <div className="mx-auto max-w-7xl px-6 py-16 md:py-24">
+        <div className="grid gap-12 md:grid-cols-5">
           {/* Brand col */}
-          <div className="lg:col-span-2 space-y-4">
-            <div className="flex items-center gap-3">
-              <div className="flex h-11 w-11 items-center justify-center rounded-full bg-gradient-to-br from-[var(--color-primary)] to-[var(--color-gold)] text-white font-display text-xl font-bold">
-                VI
-              </div>
-              <span className="font-display text-xl font-semibold tracking-widest text-white">
-                FURNITURE
-              </span>
-            </div>
-            <p className="max-w-md text-sm leading-relaxed text-white/70">
-              Đồ nội thất thủ công từ Việt Nam — handcrafted Vietnamese luxury
-              furniture, designed in Hanoi and built to last generations.
+          <div className="md:col-span-1 space-y-4">
+            <Link
+              href="/"
+              className="font-display text-[18px] font-medium tracking-[0.24em] text-[#1A1A1A] cursor-pointer"
+            >
+              VI
+            </Link>
+            <p className="text-[13px] leading-relaxed text-[#6B6660]">
+              An atelier of handmade objects — designed in Hà Nội, made in
+              Bình Dương.
             </p>
-            <div className="space-y-2 pt-2 text-sm text-white/70">
-              <p className="flex items-center gap-2">
-                <MapPin className="h-4 w-4 text-[var(--color-gold)]" />
-                12 Hàng Bài, Hoàn Kiếm, Hà Nội
-              </p>
-              <p className="flex items-center gap-2">
-                <Phone className="h-4 w-4 text-[var(--color-gold)]" />
-                +84 24 3936 8888
-              </p>
-              <p className="flex items-center gap-2">
-                <Mail className="h-4 w-4 text-[var(--color-gold)]" />
-                xinchao@vifurniture.vn
-              </p>
-            </div>
           </div>
 
-          {cols.map((col) => (
+          {columns.map((col) => (
             <div key={col.title}>
-              <h4 className="font-display text-sm font-semibold uppercase tracking-widest text-[var(--color-gold)]">
+              <h4 className="text-[11px] uppercase tracking-[0.18em] text-[#6B6660] font-medium">
                 {col.title}
               </h4>
-              <ul className="mt-4 space-y-3">
+              <ul className="mt-5 space-y-3">
                 {col.links.map((link) => (
                   <li key={link}>
                     <Link
                       href="#"
-                      className="text-sm text-white/70 fluid-transition hover:text-white"
+                      className="text-[13px] text-[#1A1A1A] cursor-pointer hover:underline underline-offset-4"
                     >
                       {link}
                     </Link>
@@ -72,21 +67,29 @@ export function SiteFooter() {
           ))}
         </div>
 
-        <div className="mt-12 flex flex-col items-center justify-between gap-6 border-t border-white/10 pt-6 sm:flex-row">
-          <p className="text-xs text-white/50">
-            © {new Date().getFullYear()} VI Furniture Co., Ltd. All rights reserved.
+        <div className="mt-16 flex flex-col gap-4 border-t border-[#E4DFD6] pt-6 sm:flex-row sm:items-center sm:justify-between">
+          <p className="text-[11px] uppercase tracking-[0.18em] text-[#6B6660]">
+            © 2026 VI · A Bình Dương–made object.
           </p>
-          <div className="flex items-center gap-2">
-            {[Facebook, Instagram, Youtube].map((Icon, i) => (
-              <Link
-                key={i}
-                href="#"
-                aria-label="Social"
-                className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 fluid-transition hover:bg-white/20"
-              >
-                <Icon className="h-4 w-4 text-white" />
-              </Link>
-            ))}
+          <div className="flex items-center gap-6">
+            <Link
+              href="#"
+              className="text-[11px] uppercase tracking-[0.18em] text-[#6B6660] cursor-pointer hover:underline underline-offset-4"
+            >
+              Privacy
+            </Link>
+            <Link
+              href="#"
+              className="text-[11px] uppercase tracking-[0.18em] text-[#6B6660] cursor-pointer hover:underline underline-offset-4"
+            >
+              Terms
+            </Link>
+            <Link
+              href="#"
+              className="text-[11px] uppercase tracking-[0.18em] text-[#6B6660] cursor-pointer hover:underline underline-offset-4"
+            >
+              Trade
+            </Link>
           </div>
         </div>
       </div>
