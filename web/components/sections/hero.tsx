@@ -3,12 +3,12 @@ import { ShaderBackground } from "@/components/ui/hero-shader";
 
 export function Hero() {
   return (
-    <section className="relative w-full h-screen min-h-[700px]">
-      <ShaderBackground>
+    <section className="relative w-full h-screen min-h-[700px] bg-[#F5F2EC] overflow-hidden">
+      <ShaderBackground clipPath="polygon(22% 0, 100% 0, 100% 100%, 0 100%)">
         <header className="relative z-20 flex items-center justify-between px-6 md:px-10 py-6">
           <a
             href="/"
-            className="text-white font-display text-lg tracking-[0.18em] uppercase font-medium cursor-pointer"
+            className="text-[#1A1A1A] font-display text-lg tracking-[0.18em] uppercase font-medium cursor-pointer"
           >
             VI
           </a>

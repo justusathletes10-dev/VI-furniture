@@ -28,9 +28,14 @@ if (typeof window !== "undefined" && process.env.NODE_ENV !== "production") {
 
 interface ShaderBackgroundProps {
   children: React.ReactNode;
+  /**
+   * Optional CSS clip-path applied to the shader layer only.
+   * Children render on top and remain unclipped.
+   */
+  clipPath?: string;
 }
 
-export function ShaderBackground({ children }: ShaderBackgroundProps) {
+export function ShaderBackground({ children, clipPath }: ShaderBackgroundProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [, setIsActive] = useState(false);
 
@@ -54,8 +59,25 @@ export function ShaderBackground({ children }: ShaderBackgroundProps) {
   return (
     <div
       ref={containerRef}
-      className="absolute inset-0 w-full h-full overflow-hidden bg-[#1A1A1A]"
+      className="absolute inset-0 w-full h-full overflow-hidden"
     >
+      {/* Clipped shader zone — dark bg + animated mesh */}
+      <div
+        className="absolute inset-0 bg-[#1A1A1A]"
+        style={clipPath ? { clipPath, WebkitClipPath: clipPath } : undefined}
+      >
+        <MeshGradient
+          className="absolute inset-0 w-full h-full"
+          colors={["#1A1A1A", "#7C4A2C", "#F5F2EC", "#2A2520", "#4A3A30"]}
+          speed={0.25}
+        />
+        <MeshGradient
+          className="absolute inset-0 w-full h-full opacity-40 mix-blend-overlay"
+          colors={["#1A1A1A", "#F5F2EC", "#C9A48A", "#1A1A1A"]}
+          speed={0.18}
+        />
+      </div>
+
       <svg className="absolute inset-0 w-0 h-0">
         <defs>
           <filter
@@ -88,18 +110,6 @@ export function ShaderBackground({ children }: ShaderBackgroundProps) {
           </filter>
         </defs>
       </svg>
-
-      {/* VI palette: charcoal, warm clay, cream — editorial, not purple */}
-      <MeshGradient
-        className="absolute inset-0 w-full h-full"
-        colors={["#1A1A1A", "#7C4A2C", "#F5F2EC", "#2A2520", "#4A3A30"]}
-        speed={0.25}
-      />
-      <MeshGradient
-        className="absolute inset-0 w-full h-full opacity-40 mix-blend-overlay"
-        colors={["#1A1A1A", "#F5F2EC", "#C9A48A", "#1A1A1A"]}
-        speed={0.18}
-      />
 
       {children}
     </div>
