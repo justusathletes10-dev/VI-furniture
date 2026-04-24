@@ -1,34 +1,31 @@
 import Image from "next/image";
 import { ShaderBackground } from "@/components/ui/hero-shader";
 
-// Diagonal seam between shader and image — slants from top-right toward bottom-left
-const shaderClip = "polygon(0 0, 62% 0, 48% 100%, 0 100%)";
-const imageClip = "polygon(62% 0, 100% 0, 100% 100%, 48% 100%)";
+// Shader covers the left portion with a diagonal right-edge; the furniture
+// image fills everything behind it, so there is never a cream gap in the seam.
+const shaderClip = "polygon(0 0, 70% 0, 56% 100%, 0 100%)";
 
 export function Hero() {
   return (
     <section className="relative w-full bg-[#F5F2EC] overflow-hidden min-h-[700px] md:h-screen">
-      {/* Left: animated shader */}
-      <div
-        className="absolute inset-y-0 left-0 w-full md:w-[64%]"
-        style={{ clipPath: shaderClip, WebkitClipPath: shaderClip }}
-      >
-        <ShaderBackground>{null}</ShaderBackground>
-      </div>
-
-      {/* Right: furniture photograph */}
-      <div
-        className="absolute inset-y-0 right-0 w-full md:w-[54%] md:block hidden"
-        style={{ clipPath: imageClip, WebkitClipPath: imageClip }}
-      >
+      {/* Full-bleed furniture photograph (base layer) */}
+      <div className="absolute inset-0">
         <Image
           src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=1800&q=85&auto=format&fit=crop"
           alt="A Batroun atelier interior — linen armchair, travertine table and slumped glass vessel in soft afternoon light."
           fill
-          sizes="(max-width: 768px) 0px, 55vw"
+          sizes="100vw"
           priority
           className="object-cover"
         />
+      </div>
+
+      {/* Animated shader on top — diagonal right edge lets the image show through */}
+      <div
+        className="absolute inset-0"
+        style={{ clipPath: shaderClip, WebkitClipPath: shaderClip }}
+      >
+        <ShaderBackground>{null}</ShaderBackground>
       </div>
 
       {/* VI wordmark — top-left, on the shader (white) */}

@@ -21,9 +21,6 @@ export function CategoriesScrollPin() {
     >
       <div className="px-6 pt-24 md:pt-32">
         <div className="mx-auto max-w-7xl">
-          <div className="mb-2 text-[10px] tracking-[0.24em] uppercase text-[#7C4A2C]">
-            Variant C — Scroll Pin
-          </div>
           <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between border-b border-[#E4DFD6] pb-10">
             <div>
               <p className="eyebrow">The Collection</p>
