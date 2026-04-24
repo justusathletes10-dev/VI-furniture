@@ -2,20 +2,23 @@ import { ShaderBackground } from "@/components/ui/hero-shader";
 
 export function Hero() {
   return (
-    <section className="px-4 md:px-6 pt-4">
+    <section className="relative w-full h-screen min-h-[700px]">
       <ShaderBackground>
-        <header className="relative z-20 flex items-center justify-between p-6">
-          <div className="flex items-center text-white font-display text-lg tracking-wide">
+        <header className="relative z-20 flex items-center justify-between px-6 md:px-10 py-6">
+          <a
+            href="/"
+            className="text-white font-display text-lg tracking-[0.18em] uppercase font-medium cursor-pointer"
+          >
             VI
-          </div>
+          </a>
 
-          <nav className="flex items-center space-x-1">
+          <nav className="hidden md:flex items-center gap-8">
             {["Collection", "Lighting", "Seating", "Tables", "Journal"].map(
               (label) => (
                 <a
                   key={label}
                   href={`#${label.toLowerCase()}`}
-                  className="text-white/80 hover:text-white text-xs font-light px-3 py-2 rounded-full hover:bg-white/10 transition-all duration-200"
+                  className="text-white/80 hover:text-white text-[11px] tracking-[0.18em] uppercase transition-colors duration-200 cursor-pointer hover:underline underline-offset-4"
                 >
                   {label}
                 </a>
@@ -23,76 +26,92 @@ export function Hero() {
             )}
           </nav>
 
-          <div
-            id="gooey-btn"
-            className="relative flex items-center group"
-            style={{ filter: "url(#gooey-filter)" }}
-          >
+          <div className="flex items-center gap-5 text-white/80 text-[11px] tracking-[0.18em] uppercase">
             <button
               type="button"
-              aria-label="Open cart"
-              className="absolute right-0 px-2.5 py-2 rounded-full bg-white text-black font-normal text-xs transition-all duration-300 hover:bg-white/90 cursor-pointer h-8 flex items-center justify-center -translate-x-10 group-hover:-translate-x-19 z-0"
+              aria-label="Search"
+              className="cursor-pointer hover:text-white transition-colors"
             >
               <svg
-                className="w-3 h-3"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
-                viewBox="0 0 24 24"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M7 17L17 7M17 7H7M17 7V17"
-                />
+                <circle cx="11" cy="11" r="7" />
+                <path d="m20 20-3.5-3.5" />
               </svg>
             </button>
-            <button
-              type="button"
-              className="px-6 py-2 rounded-full bg-white text-black font-normal text-xs transition-all duration-300 hover:bg-white/90 cursor-pointer h-8 flex items-center z-10"
+            <a
+              href="#account"
+              className="cursor-pointer hover:text-white transition-colors"
+              aria-label="Account"
             >
-              Cart (0)
-            </button>
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <circle cx="12" cy="8" r="4" />
+                <path d="M4 21c1.5-4 5-6 8-6s6.5 2 8 6" />
+              </svg>
+            </a>
+            <a
+              href="#cart"
+              className="cursor-pointer hover:text-white transition-colors flex items-center gap-2"
+            >
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M5 7h14l-1.2 12.2a2 2 0 0 1-2 1.8H8.2a2 2 0 0 1-2-1.8L5 7Z" />
+                <path d="M9 7a3 3 0 0 1 6 0" />
+              </svg>
+              <span>(0)</span>
+            </a>
           </div>
         </header>
 
-        <main className="absolute bottom-8 left-8 z-20 max-w-lg">
-          <div className="text-left">
-            <div
-              className="inline-flex items-center px-3 py-1 rounded-full bg-white/5 backdrop-blur-sm mb-4 relative"
-              style={{ filter: "url(#glass-effect)" }}
+        <main className="absolute bottom-12 left-6 md:bottom-16 md:left-12 z-20 max-w-2xl pr-6">
+          <h1 className="font-display text-5xl md:text-7xl leading-[1.05] tracking-tight text-white mb-6 font-medium">
+            Furniture for the
+            <br />
+            <span className="italic font-normal">modern Lebanese home.</span>
+          </h1>
+
+          <p className="text-sm md:text-base font-light text-white/75 mb-8 leading-relaxed max-w-md">
+            Hand-finished cedar, slow-spun rattan, and bespoke upholstery —
+            built in our Batroun atelier for homes from Beirut to Byblos.
+          </p>
+
+          <div className="flex items-center gap-3 flex-wrap">
+            <a
+              href="#categories"
+              className="px-7 py-3 rounded-full border border-white/40 text-white text-[11px] tracking-[0.18em] uppercase transition-all duration-200 hover:bg-white/10 hover:border-white/70 cursor-pointer"
             >
-              <div className="absolute top-0 left-1 right-1 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent rounded-full" />
-              <span className="text-white/90 text-xs font-light relative z-10 tracking-widest uppercase">
-                Collection 04 — Spring 2026
-              </span>
-            </div>
-
-            <h1 className="font-display text-5xl md:text-6xl leading-tight tracking-tight text-white mb-4 font-medium">
-              Furniture for the
-              <br />
-              <span className="italic">modern Lebanese home.</span>
-            </h1>
-
-            <p className="text-sm font-light text-white/70 mb-6 leading-relaxed max-w-md">
-              Hand-finished cedar, slow-spun rattan, and bespoke upholstery —
-              built in our Batroun atelier for homes from Beirut to Byblos.
-            </p>
-
-            <div className="flex items-center gap-4 flex-wrap">
-              <a
-                href="#categories"
-                className="px-8 py-3 rounded-full bg-transparent border border-white/30 text-white font-normal text-xs transition-all duration-200 hover:bg-white/10 hover:border-white/50 cursor-pointer"
-              >
-                Explore Categories
-              </a>
-              <a
-                href="#products"
-                className="px-8 py-3 rounded-full bg-white text-black font-normal text-xs transition-all duration-200 hover:bg-white/90 cursor-pointer"
-              >
-                View the Collection
-              </a>
-            </div>
+              Explore Categories
+            </a>
+            <a
+              href="#products"
+              className="px-7 py-3 rounded-full bg-white text-[#1A1A1A] text-[11px] tracking-[0.18em] uppercase transition-all duration-200 hover:bg-white/90 cursor-pointer"
+            >
+              View the Collection
+            </a>
           </div>
         </main>
       </ShaderBackground>

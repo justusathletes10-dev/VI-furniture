@@ -10,6 +10,7 @@
 
   --font-display: var(--font-display), ui-sans-serif, system-ui, sans-serif;
   --font-body: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-serif), "Cormorant Garamond", "Times New Roman", ui-serif, serif;
 }
 
 :root {
@@ -34,6 +35,10 @@ body {
 
 .font-body {
   font-family: var(--font-body);
+}
+
+.font-serif {
+  font-family: var(--font-serif);
 }
 
 /* ---------- Editorial primitives ---------- */

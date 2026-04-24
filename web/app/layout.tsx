@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Inter_Tight } from "next/font/google";
+import { Inter, Inter_Tight, Cormorant_Garamond } from "next/font/google";
 import "./globals.css";
 
 const interBody = Inter({
@@ -14,6 +14,14 @@ const interDisplay = Inter_Tight({
   variable: "--font-display",
   display: "swap",
   weight: ["400", "500"],
+});
+
+const editorialSerif = Cormorant_Garamond({
+  subsets: ["latin"],
+  variable: "--font-serif",
+  display: "swap",
+  weight: ["400", "500"],
+  style: ["normal", "italic"],
 });
 
 export const metadata: Metadata = {
@@ -36,7 +44,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${interBody.variable} ${interDisplay.variable}`}>
+    <html lang="en" className={`${interBody.variable} ${interDisplay.variable} ${editorialSerif.variable}`}>
       <body className="min-h-screen bg-[#F5F2EC] text-[#1A1A1A] font-body antialiased">
         {children}
       </body>
