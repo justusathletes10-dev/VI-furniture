@@ -1,6 +1,6 @@
 # VI Furniture Store — Redesign
 
-Multi-deliverable redesign of [vifurniturestore.com](https://vifurniturestore.com/) — a Vietnamese luxury furniture e-commerce brand.
+Multi-deliverable redesign of [vifurniturestore.com](https://vifurniturestore.com/) — a Lebanese luxury furniture e-commerce brand.
 
 ## Design System
 

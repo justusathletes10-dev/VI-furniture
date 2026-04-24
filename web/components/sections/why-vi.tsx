@@ -4,7 +4,7 @@ const features = [
   {
     icon: Hammer,
     title: "Made by hand.",
-    desc: "Joinery cut, sanded and finished by third-generation makers in Bình Dương.",
+    desc: "Joinery cut, sanded and finished by third-generation makers in Batroun.",
   },
   {
     icon: Leaf,

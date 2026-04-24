@@ -71,12 +71,12 @@ export function Hero() {
             <h1 className="font-display text-5xl md:text-6xl leading-tight tracking-tight text-white mb-4 font-medium">
               Furniture for the
               <br />
-              <span className="italic">modern Vietnamese home.</span>
+              <span className="italic">modern Lebanese home.</span>
             </h1>
 
             <p className="text-sm font-light text-white/70 mb-6 leading-relaxed max-w-md">
-              Hand-finished hardwood, slow-spun rattan, and bespoke upholstery —
-              built in our Bình Dương atelier for homes from Hà Nội to Sài Gòn.
+              Hand-finished cedar, slow-spun rattan, and bespoke upholstery —
+              built in our Batroun atelier for homes from Beirut to Byblos.
             </p>
 
             <div className="flex items-center gap-4 flex-wrap">

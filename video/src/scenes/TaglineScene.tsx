@@ -13,7 +13,7 @@ import { COLORS } from "../ViBrandIntro";
 const { fontFamily: cinzelFamily } = loadCinzel();
 const { fontFamily: josefinFamily } = loadJosefin();
 
-const TAGLINE = ["Crafted", "for", "the", "Modern", "Vietnamese", "Home"];
+const TAGLINE = ["Crafted", "for", "the", "Modern", "Lebanese", "Home"];
 
 export const TaglineScene: React.FC = () => {
   const frame = useCurrentFrame();
@@ -58,7 +58,7 @@ export const TaglineScene: React.FC = () => {
           });
           const translateY = interpolate(wordEntry, [0, 1], [60, 0]);
           const opacity = interpolate(wordEntry, [0, 1], [0, 1]);
-          const isAccent = word === "Vietnamese";
+          const isAccent = word === "Lebanese";
 
           return (
             <span

@@ -8,58 +8,58 @@ import {
 
 const testimonials: Testimonial[] = [
   {
-    text: "The teak credenza arrived two weeks early — the joinery is impeccable, and the white-glove team installed it in under an hour.",
+    text: "The walnut credenza arrived two weeks early — the joinery is impeccable, and the white-glove team installed it in under an hour.",
     image: "https://randomuser.me/api/portraits/women/12.jpg",
-    name: "Linh Nguyễn",
-    role: "Homeowner — Hà Nội",
+    name: "Rania Khoury",
+    role: "Homeowner — Beirut",
   },
   {
     text: "VI's atelier worked with our architect on a custom dining table for sixteen. The result is the centrepiece of the home.",
     image: "https://randomuser.me/api/portraits/men/22.jpg",
-    name: "Minh Trần",
-    role: "Architect — Sài Gòn",
+    name: "Karim Saad",
+    role: "Architect — Byblos",
   },
   {
     text: "After ten years our linen sofa still looks like the day it arrived. The reupholster service is exceptional.",
     image: "https://randomuser.me/api/portraits/women/33.jpg",
-    name: "Hương Phạm",
-    role: "Interior Designer — Đà Nẵng",
+    name: "Yasmine Haddad",
+    role: "Interior Designer — Tripoli",
   },
   {
     text: "Slow furniture, made properly. The hand-spun rattan lounge has more personality than anything I've imported from Europe.",
     image: "https://randomuser.me/api/portraits/men/44.jpg",
-    name: "Đức Lê",
-    role: "Collector — Hà Nội",
+    name: "Ziad Abou-Jaoudé",
+    role: "Collector — Beirut",
   },
   {
-    text: "Working with the Bình Dương atelier felt like a real collaboration — they understood the brief from the first sketch.",
+    text: "Working with the Batroun atelier felt like a real collaboration — they understood the brief from the first sketch.",
     image: "https://randomuser.me/api/portraits/women/55.jpg",
-    name: "Mai Vũ",
-    role: "Stylist — Sài Gòn",
+    name: "Layla Bassil",
+    role: "Stylist — Saida",
   },
   {
-    text: "Quietly the best furniture studio in Vietnam. Restrained, considered, durable — exactly what a home needs.",
+    text: "Quietly the best furniture studio in Lebanon. Restrained, considered, durable — exactly what a home needs.",
     image: "https://randomuser.me/api/portraits/men/66.jpg",
-    name: "Tuấn Hoàng",
-    role: "Editor — Đà Nẵng",
+    name: "Omar Fakhoury",
+    role: "Editor — Tripoli",
   },
   {
     text: "The Atelier Edition lighting series is extraordinary. Slumped glass and brass — every fixture feels like a small sculpture.",
     image: "https://randomuser.me/api/portraits/women/77.jpg",
-    name: "Quỳnh Đặng",
-    role: "Gallerist — Sài Gòn",
+    name: "Nour Mansour",
+    role: "Gallerist — Byblos",
   },
   {
     text: "Ten-year warranty isn't marketing — they actually honour it. Replaced a piece of hardware on a five-year-old chair, no questions.",
     image: "https://randomuser.me/api/portraits/men/88.jpg",
-    name: "Khánh Phan",
-    role: "Homeowner — Hà Nội",
+    name: "Fady Geagea",
+    role: "Homeowner — Beirut",
   },
   {
     text: "Sustainable wood, ethical sourcing, and craft you can feel. We furnished the entire boutique with VI pieces.",
     image: "https://randomuser.me/api/portraits/women/99.jpg",
-    name: "Thanh Bùi",
-    role: "Hotelier — Hội An",
+    name: "Maya Chamoun",
+    role: "Hotelier — Batroun",
   },
 ];
 
@@ -85,7 +85,7 @@ export function Testimonials() {
           </div>
 
           <h2 className="font-display text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-medium tracking-tight mt-5 text-center">
-            From homes across Vietnam.
+            From homes across Lebanon.
           </h2>
           <p className="text-center mt-5 opacity-75">
             What collectors, designers, and homeowners say about living with a

@@ -1,6 +1,6 @@
 # VI Furniture — Liquid Glass Storefront
 
-A Next.js 15 (App Router) + TypeScript + Tailwind CSS v4 redesign for **VI Furniture Store**, a Vietnamese luxury furniture brand. The UI uses a Liquid Glass design language: translucent surfaces, backdrop blur, and smooth fluid transitions.
+A Next.js 15 (App Router) + TypeScript + Tailwind CSS v4 redesign for **VI Furniture Store**, a Lebanese luxury furniture brand. The UI uses a Liquid Glass design language: translucent surfaces, backdrop blur, and smooth fluid transitions.
 
 ## Stack
 
@@ -53,5 +53,5 @@ web/
 ## Notes
 
 - All product imagery is hot-linked from Unsplash for prototyping. Replace with real assets before production.
-- Prices are formatted in VND (e.g. `₫12.500.000`).
+- Prices are formatted in USD (e.g. `$1,200`) — the de-facto luxury currency in Lebanon.
 - Server components by default; only interactive bits are `"use client"`.

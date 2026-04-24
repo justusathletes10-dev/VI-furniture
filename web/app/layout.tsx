@@ -17,14 +17,14 @@ const interDisplay = Inter_Tight({
 });
 
 export const metadata: Metadata = {
-  title: "VI — Objects for a lifetime",
+  title: "VI — Lebanese Atelier Furniture",
   description:
-    "VI is an atelier of handmade objects from Bình Dương — seating, tables, lighting and quiet vessels, designed for the rooms you keep.",
+    "VI is an atelier of handmade objects from Batroun, Lebanon — seating, tables, lighting and quiet vessels in cedar, olive wood and hand-carved walnut, designed for the rooms you keep.",
   keywords: [
     "VI",
-    "Vietnamese design",
-    "Bình Dương",
-    "atelier",
+    "Lebanese design",
+    "Beirut atelier",
+    "Batroun",
     "handmade furniture",
     "editorial design",
   ],

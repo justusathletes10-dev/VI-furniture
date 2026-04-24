@@ -5,7 +5,7 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-export function formatVND(amount: number): string {
-  // Vietnamese format: ₫12.500.000
-  return "₫" + amount.toLocaleString("vi-VN");
+export function formatUSD(amount: number): string {
+  // Lebanese luxury pricing uses USD: e.g. $1,200
+  return "$" + amount.toLocaleString("en-US");
 }

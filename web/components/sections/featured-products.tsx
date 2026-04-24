@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { featuredProducts } from "@/lib/data";
-import { formatVND } from "@/lib/utils";
+import { formatUSD } from "@/lib/utils";
 
 const badges: Record<string, string> = {
   "Best Seller": "Atelier Edition",
@@ -28,7 +28,7 @@ export function FeaturedProducts() {
           </div>
           <p className="max-w-sm text-[13px] leading-relaxed text-[#6B6660]">
             Each object is signed, numbered, and made to order in our
-            Bình Dương atelier.
+            Batroun atelier.
           </p>
         </div>
 
@@ -67,11 +67,11 @@ export function FeaturedProducts() {
                           {p.name}
                         </h3>
                         <p className="mt-1 text-[12px] text-[#6B6660]">
-                          {p.vietnameseName} · {p.category}
+                          {p.subtitle} · {p.category}
                         </p>
                       </div>
                       <p className="font-display text-[14px] text-[#1A1A1A] whitespace-nowrap">
-                        {formatVND(p.price)}
+                        {formatUSD(p.price)}
                       </p>
                     </div>
 

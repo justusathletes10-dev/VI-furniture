@@ -4,9 +4,9 @@ const columns = [
   {
     title: "Visit",
     links: [
-      "Hà Nội — 12 Hàng Bài",
-      "Sài Gòn — 44 Lý Tự Trọng",
-      "Bình Dương — Atelier",
+      "Beirut — 12 Rue Gouraud, Gemmayzeh",
+      "Byblos — 44 Rue du Port, Jbeil",
+      "Batroun — Atelier",
       "Book an appointment",
     ],
   },
@@ -41,8 +41,8 @@ export function SiteFooter() {
               VI
             </Link>
             <p className="text-[13px] leading-relaxed text-[#6B6660]">
-              An atelier of handmade objects — designed in Hà Nội, made in
-              Bình Dương.
+              An atelier of handmade objects — designed in Beirut, made in
+              Batroun.
             </p>
           </div>
 
@@ -69,7 +69,7 @@ export function SiteFooter() {
 
         <div className="mt-16 flex flex-col gap-4 border-t border-[#E4DFD6] pt-6 sm:flex-row sm:items-center sm:justify-between">
           <p className="text-[11px] uppercase tracking-[0.18em] text-[#6B6660]">
-            © 2026 VI · A Bình Dương–made object.
+            © 2026 VI · A Batroun–made object.
           </p>
           <div className="flex items-center gap-6">
             <Link
